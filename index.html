@@ -2,9 +2,639 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GridIron IQ — Closed Beta for Android. NFL fantasy scouting, exposure analysis, and trade intelligence for Sleeper managers.">
+  <meta name="theme-color" content="#0f172a">
   <title>GridIron IQ — Closed Beta</title>
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-elevated: #172033;
+      --border: #334155;
+      --primary: #38bdf8;
+      --primary-muted: rgba(56, 189, 248, 0.12);
+      --primary-border: rgba(56, 189, 248, 0.35);
+      --text: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --max-width: 920px;
+      --shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.14), transparent),
+        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.06), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 1px var(--primary-border);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--surface-elevated);
+      flex-shrink: 0;
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--text-secondary);
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 0.75rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .lang-switch button.active {
+      background: var(--primary);
+      color: var(--bg);
+    }
+
+    main {
+      padding: 2.5rem 0 4rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 1rem 0 2.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary-border);
+      background: var(--primary-muted);
+      color: #93c5fd;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      margin: 0 auto 1.25rem;
+      box-shadow: var(--shadow), 0 0 0 1px var(--primary-border);
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.85rem, 5vw, 2.6rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .hero-lead {
+      margin: 0 auto;
+      max-width: 38rem;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card + .card {
+      margin-top: 1rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      margin: 0 0 0.75rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .download-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.12s, opacity 0.12s;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+    }
+
+    .btn-secondary {
+      background: var(--surface-elevated);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .hash-box {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    .hash-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .hash-value {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      word-break: break-all;
+      line-height: 1.45;
+    }
+
+    .copy-btn {
+      flex-shrink: 0;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text-secondary);
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .copy-btn.copied {
+      border-color: rgba(34, 197, 94, 0.45);
+      color: var(--success);
+    }
+
+    ol.steps {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--text-secondary);
+    }
+
+    ol.steps li {
+      margin-bottom: 0.55rem;
+      padding-left: 0.25rem;
+    }
+
+    ol.steps li:last-child {
+      margin-bottom: 0;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .feature {
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.35);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.92rem;
+    }
+
+    .feature span {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+    }
+
+    .notice {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.95rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: rgba(245, 158, 11, 0.08);
+      color: #fcd34d;
+      font-size: 0.9rem;
+    }
+
+    .notice p {
+      margin: 0;
+      color: #fde68a;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: 640px) {
+      .brand-text span {
+        display: none;
+      }
+
+      .download-row .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>GridIron IQ Closed Beta</h1>
-  <p>APK folgt nach Release.</p>
+  <header>
+    <div class="wrap header-inner">
+      <div class="brand">
+        <img src="assets/icon.png" alt="GridIron IQ">
+        <div class="brand-text">
+          <strong>GridIron IQ</strong>
+          <span data-i18n="header.tagline">NFL Fantasy Companion</span>
+        </div>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" id="btn-de" class="active" aria-pressed="true">DE</button>
+        <button type="button" id="btn-en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div class="badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span data-i18n="hero.badge">Closed Beta · Android</span>
+        </div>
+        <img class="hero-logo" src="assets/icon.png" alt="GridIron IQ logo">
+        <h1 data-i18n="hero.title">Smarter decisions for your Sleeper leagues</h1>
+        <p class="hero-lead" data-i18n="hero.lead">
+          GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.
+        </p>
+      </section>
+
+      <section class="card" id="download">
+        <h2 data-i18n="download.title">Download the beta APK</h2>
+        <p data-i18n="download.body">
+          This build is distributed outside the Play Store for invited testers only. Verify the SHA-256 checksum after download before installing.
+        </p>
+        <div class="download-row">
+          <a class="btn btn-primary" id="download-link" href="https://github.com/nuebelm/gridironiq-beta/releases/latest" data-i18n="download.cta">
+            Download APK
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/nuebelm/gridironiq-beta/releases" data-i18n="download.releases">
+            All releases
+          </a>
+        </div>
+        <div class="hash-box">
+          <span class="hash-label" data-i18n="download.hashLabel">SHA-256 checksum</span>
+          <div class="hash-value">
+            <code id="sha256">D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6</code>
+            <button type="button" class="copy-btn" id="copy-hash" data-i18n="download.copy">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="install.title">Installation (Android)</h2>
+        <ol class="steps">
+          <li data-i18n="install.step1">Download <strong>app-release.apk</strong> from the release above.</li>
+          <li data-i18n="install.step2">Allow installs from unknown sources for your browser or file manager (Settings → Security / Apps).</li>
+          <li data-i18n="install.step3">Open the APK and confirm installation.</li>
+          <li data-i18n="install.step4">Launch GridIron IQ and sign in with Google.</li>
+          <li data-i18n="install.step5">Connect your Sleeper account under Settings and enable your leagues.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="features.title">What you can test</h2>
+        <div class="features">
+          <div class="feature">
+            <strong data-i18n="features.scouting.title">Scouting Center</strong>
+            <span data-i18n="features.scouting.body">Notes, tags, and trade flags synced to the cloud.</span>
+          </div>
+          <div class="feature">
+            <strong data-i18n="features.exposure.title">Exposure &amp; Lineups</strong>
+            <span data-i18n="features.exposure.body">See where your players start across leagues at a glance.</span>
+          </div>
+          <div class="feature">
+            <strong data-i18n="features.trade.title">Trade Board</strong>
+            <span data-i18n="features.trade.body">Package groups, market signals, and roster context for trades.</span>
+          </div>
+          <div class="feature">
+            <strong data-i18n="features.injury.title">Injury Matrix</strong>
+            <span data-i18n="features.injury.body">Weekly injury and usage trends powered by nflverse data.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="notice">
+          <span aria-hidden="true">⚠</span>
+          <p data-i18n="notice.body">
+            Closed beta — not available in the Play Store. Pro features may be enabled manually for testers. Please report bugs and feedback to your invite contact.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="https://nuebelm.github.io/gridironiq-privacy/" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="https://github.com/nuebelm/gridironiq-beta/releases" data-i18n="footer.releases">GitHub Releases</a>
+        <a href="mailto:support@gridiron-iq.de" data-i18n="footer.contact">Contact</a>
+      </div>
+      <p>© 2026 GridIron IQ · <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    const SHA256 = 'D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6';
+    const RELEASE_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/latest';
+
+    const messages = {
+      de: {
+        'header.tagline': 'NFL Fantasy Companion',
+        'hero.badge': 'Closed Beta · Android',
+        'hero.title': 'Bessere Entscheidungen für deine Sleeper-Ligen',
+        'hero.lead': 'GridIron IQ vereint Scouting-Notizen, Exposure-Analyse, Trade Intelligence und Injury Insights in einer App — für ambitionierte Fantasy Manager.',
+        'download.title': 'Beta-APK herunterladen',
+        'download.body': 'Dieser Build wird außerhalb des Play Store nur für eingeladene Tester bereitgestellt. Prüfe nach dem Download die SHA-256-Prüfsumme vor der Installation.',
+        'download.cta': 'APK herunterladen',
+        'download.releases': 'Alle Releases',
+        'download.hashLabel': 'SHA-256 Prüfsumme',
+        'download.copy': 'Kopieren',
+        'download.copied': 'Kopiert',
+        'install.title': 'Installation (Android)',
+        'install.step1': 'Lade <strong>app-release.apk</strong> aus dem Release oben herunter.',
+        'install.step2': 'Erlaube Installationen aus unbekannten Quellen für Browser oder Dateimanager (Einstellungen → Sicherheit / Apps).',
+        'install.step3': 'Öffne die APK und bestätige die Installation.',
+        'install.step4': 'Starte GridIron IQ und melde dich mit Google an.',
+        'install.step5': 'Verbinde deinen Sleeper-Account unter Einstellungen und aktiviere deine Ligen.',
+        'features.title': 'Das kannst du testen',
+        'features.scouting.title': 'Scouting Center',
+        'features.scouting.body': 'Notizen, Tags und Trade-Flags mit Cloud-Sync.',
+        'features.exposure.title': 'Exposure & Lineups',
+        'features.exposure.body': 'Sieh auf einen Blick, wo deine Spieler in welchen Ligen starten.',
+        'features.trade.title': 'Trade Board',
+        'features.trade.body': 'Paket-Gruppen, Markt-Signale und Kader-Kontext für Trades.',
+        'features.injury.title': 'Injury Matrix',
+        'features.injury.body': 'Wöchentliche Injury- und Usage-Trends mit nflverse-Daten.',
+        'notice.body': 'Closed Beta — nicht im Play Store verfügbar. Pro-Features können für Tester manuell freigeschaltet werden. Bitte melde Bugs und Feedback an deinen Einladungskontakt.',
+        'footer.privacy': 'Datenschutz',
+        'footer.releases': 'GitHub Releases',
+        'footer.contact': 'Kontakt',
+        'footer.rights': 'Alle Rechte vorbehalten.',
+        'meta.title': 'GridIron IQ — Closed Beta',
+        'meta.description': 'GridIron IQ Closed Beta für Android. NFL Fantasy Scouting, Exposure-Analyse und Trade Intelligence für Sleeper Manager.'
+      },
+      en: {
+        'header.tagline': 'NFL Fantasy Companion',
+        'hero.badge': 'Closed Beta · Android',
+        'hero.title': 'Smarter decisions for your Sleeper leagues',
+        'hero.lead': 'GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.',
+        'download.title': 'Download the beta APK',
+        'download.body': 'This build is distributed outside the Play Store for invited testers only. Verify the SHA-256 checksum after download before installing.',
+        'download.cta': 'Download APK',
+        'download.releases': 'All releases',
+        'download.hashLabel': 'SHA-256 checksum',
+        'download.copy': 'Copy',
+        'download.copied': 'Copied',
+        'install.title': 'Installation (Android)',
+        'install.step1': 'Download <strong>app-release.apk</strong> from the release above.',
+        'install.step2': 'Allow installs from unknown sources for your browser or file manager (Settings → Security / Apps).',
+        'install.step3': 'Open the APK and confirm installation.',
+        'install.step4': 'Launch GridIron IQ and sign in with Google.',
+        'install.step5': 'Connect your Sleeper account under Settings and enable your leagues.',
+        'features.title': 'What you can test',
+        'features.scouting.title': 'Scouting Center',
+        'features.scouting.body': 'Notes, tags, and trade flags synced to the cloud.',
+        'features.exposure.title': 'Exposure & Lineups',
+        'features.exposure.body': 'See where your players start across leagues at a glance.',
+        'features.trade.title': 'Trade Board',
+        'features.trade.body': 'Package groups, market signals, and roster context for trades.',
+        'features.injury.title': 'Injury Matrix',
+        'features.injury.body': 'Weekly injury and usage trends powered by nflverse data.',
+        'notice.body': 'Closed beta — not available in the Play Store. Pro features may be enabled manually for testers. Please report bugs and feedback to your invite contact.',
+        'footer.privacy': 'Privacy Policy',
+        'footer.releases': 'GitHub Releases',
+        'footer.contact': 'Contact',
+        'footer.rights': 'All rights reserved.',
+        'meta.title': 'GridIron IQ — Closed Beta',
+        'meta.description': 'GridIron IQ Closed Beta for Android. NFL fantasy scouting, exposure analysis, and trade intelligence for Sleeper managers.'
+      }
+    };
+
+    function detectLanguage() {
+      const saved = localStorage.getItem('giiq-beta-lang');
+      if (saved === 'de' || saved === 'en') return saved;
+      return navigator.language?.toLowerCase().startsWith('de') ? 'de' : 'en';
+    }
+
+    function applyLanguage(lang) {
+      const dict = messages[lang] || messages.en;
+      document.documentElement.lang = lang;
+      document.title = dict['meta.title'];
+      document.querySelector('meta[name="description"]').setAttribute('content', dict['meta.description']);
+
+      document.querySelectorAll('[data-i18n]').forEach((node) => {
+        const key = node.getAttribute('data-i18n');
+        if (dict[key] != null) {
+          node.innerHTML = dict[key];
+        }
+      });
+
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-de').setAttribute('aria-pressed', lang === 'de' ? 'true' : 'false');
+      document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+
+      localStorage.setItem('giiq-beta-lang', lang);
+    }
+
+    document.getElementById('btn-de').addEventListener('click', () => applyLanguage('de'));
+    document.getElementById('btn-en').addEventListener('click', () => applyLanguage('en'));
+
+    document.getElementById('copy-hash').addEventListener('click', async () => {
+      const button = document.getElementById('copy-hash');
+      const lang = localStorage.getItem('giiq-beta-lang') || detectLanguage();
+      const dict = messages[lang] || messages.en;
+      try {
+        await navigator.clipboard.writeText(SHA256);
+        button.textContent = dict['download.copied'];
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = dict['download.copy'];
+          button.classList.remove('copied');
+        }, 1800);
+      } catch (_error) {
+        window.prompt('SHA-256', SHA256);
+      }
+    });
+
+    document.getElementById('download-link').href = RELEASE_URL;
+    document.getElementById('sha256').textContent = SHA256;
+
+    applyLanguage(detectLanguage());
+  </script>
 </body>
+</html>
