@@ -491,11 +491,26 @@
         </div>
       </section>
 
+      <section class="card" id="feedback">
+        <h2 data-i18n="feedback.title">Report a bug</h2>
+        <p data-i18n="feedback.body">
+          Found an issue? Use our structured bug report form — screenshots and steps help us fix things faster.
+        </p>
+        <div class="download-row">
+          <a class="btn btn-primary" id="feedback-link" href="#" target="_blank" rel="noopener noreferrer" data-i18n="feedback.cta">
+            Open bug report form
+          </a>
+          <a class="btn btn-secondary" href="mailto:support@gridiron-iq.de?subject=GridIron%20IQ%20Beta%20Bug" data-i18n="feedback.email">
+            Email support
+          </a>
+        </div>
+      </section>
+
       <section class="card">
         <div class="notice">
           <span aria-hidden="true">⚠</span>
           <p data-i18n="notice.body">
-            Closed beta — not available in the Play Store. Pro features may be enabled manually for testers. Please report bugs and feedback to your invite contact.
+            Closed beta — not available in the Play Store. New accounts start on Free; full features are unlocked after manual Pro activation via email to support@gridiron-iq.de.
           </p>
         </div>
       </section>
@@ -506,6 +521,7 @@
     <div class="wrap">
       <div class="footer-links">
         <a href="https://nuebelm.github.io/gridironiq-privacy/" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="#" id="footer-feedback-link" data-i18n="footer.feedback">Bug report</a>
         <a href="https://github.com/nuebelm/gridironiq-beta/releases" data-i18n="footer.releases">GitHub Releases</a>
         <a href="mailto:support@gridiron-iq.de" data-i18n="footer.contact">Contact</a>
       </div>
@@ -516,6 +532,8 @@
   <script>
     const SHA256 = 'D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6';
     const RELEASE_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/latest';
+    // Paste Google Form short link after creation — see docs/ops/28-closed-beta-program.md §4.1
+    const FEEDBACK_FORM_URL = 'https://forms.gle/REPLACE_WITH_YOUR_FORM_ID';
 
     const messages = {
       de: {
@@ -546,8 +564,13 @@
         'features.trade.body': 'Paket-Gruppen, Markt-Signale und Kader-Kontext für Trades.',
         'features.injury.title': 'Injury Matrix',
         'features.injury.body': 'Wöchentliche Injury- und Usage-Trends mit nflverse-Daten.',
-        'notice.body': 'Closed Beta — nicht im Play Store. Neue Konten starten als Free; alle Features erhältst du nach manueller Pro-Freischaltung per E-Mail an support@gridiron-iq.de. Bugs und Feedback gern an deinen Einladungskontakt.',
+        'notice.body': 'Closed Beta — nicht im Play Store. Neue Konten starten als Free; alle Features erhältst du nach manueller Pro-Freischaltung per E-Mail an support@gridiron-iq.de.',
+        'feedback.title': 'Bug melden',
+        'feedback.body': 'Problem gefunden? Nutze unser Bug-Report-Formular — Screenshots und Reproduktionsschritte helfen uns beim Fix.',
+        'feedback.cta': 'Bug-Report-Formular öffnen',
+        'feedback.email': 'E-Mail an Support',
         'footer.privacy': 'Datenschutz',
+        'footer.feedback': 'Bug melden',
         'footer.releases': 'GitHub Releases',
         'footer.contact': 'Kontakt',
         'footer.rights': 'Alle Rechte vorbehalten.',
@@ -582,8 +605,13 @@
         'features.trade.body': 'Package groups, market signals, and roster context for trades.',
         'features.injury.title': 'Injury Matrix',
         'features.injury.body': 'Weekly injury and usage trends powered by nflverse data.',
-        'notice.body': 'Closed beta — not available in the Play Store. New accounts start on Free; full features are unlocked after manual Pro activation via email to support@gridiron-iq.de. Please report bugs and feedback to your invite contact.',
+        'notice.body': 'Closed beta — not available in the Play Store. New accounts start on Free; full features are unlocked after manual Pro activation via email to support@gridiron-iq.de.',
+        'feedback.title': 'Report a bug',
+        'feedback.body': 'Found an issue? Use our structured bug report form — screenshots and steps help us fix things faster.',
+        'feedback.cta': 'Open bug report form',
+        'feedback.email': 'Email support',
         'footer.privacy': 'Privacy Policy',
+        'footer.feedback': 'Bug report',
         'footer.releases': 'GitHub Releases',
         'footer.contact': 'Contact',
         'footer.rights': 'All rights reserved.',
@@ -641,6 +669,15 @@
 
     document.getElementById('download-link').href = RELEASE_URL;
     document.getElementById('sha256').textContent = SHA256;
+
+    const feedbackConfigured = FEEDBACK_FORM_URL && !FEEDBACK_FORM_URL.includes('REPLACE_WITH_YOUR_FORM_ID');
+    if (feedbackConfigured) {
+      document.getElementById('feedback-link').href = FEEDBACK_FORM_URL;
+      document.getElementById('footer-feedback-link').href = FEEDBACK_FORM_URL;
+    } else {
+      document.getElementById('feedback-link').href = 'mailto:support@gridiron-iq.de?subject=GridIron%20IQ%20Beta%20Bug';
+      document.getElementById('footer-feedback-link').href = 'mailto:support@gridiron-iq.de?subject=GridIron%20IQ%20Beta%20Bug';
+    }
 
     applyLanguage(detectLanguage());
   </script>
