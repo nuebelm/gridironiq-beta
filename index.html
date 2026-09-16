@@ -78,8 +78,101 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 0.85rem 0;
+      gap: 0.75rem;
+      padding: 0.75rem 0 0.55rem;
+    }
+
+    .header-nav-wrap {
+      border-top: 1px solid rgba(51, 65, 85, 0.45);
+      padding: 0 0 0.55rem;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0.45rem 0 0.1rem;
+    }
+
+    .header-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .header-nav a {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.45);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+
+    .header-nav a:hover {
+      color: var(--text);
+      border-color: var(--primary-border);
+      background: rgba(56, 189, 248, 0.08);
+      text-decoration: none;
+    }
+
+    .page-flow {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-flow > .card {
+      margin-top: 0;
+    }
+
+    .page-flow > .card + .card {
+      margin-top: 1rem;
+    }
+
+    .section-trust { order: 1; }
+    .section-preview { order: 2; }
+    .section-download { order: 3; }
+    .section-install { order: 4; }
+    .section-changelog { order: 5; }
+    .section-features { order: 6; }
+    .section-feedback { order: 7; }
+    .section-notice { order: 8; }
+
+    [id] {
+      scroll-margin-top: 7.25rem;
+    }
+
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 19;
+      padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+      background: rgba(15, 23, 42, 0.94);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.28);
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .sticky-cta.is-hidden {
+      transform: translateY(110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .sticky-cta .btn {
+      width: 100%;
     }
 
     .brand {
@@ -143,6 +236,21 @@
 
     main {
       padding: 0 0 4rem;
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+      }
+
+      .sticky-cta {
+        display: block;
+      }
+
+      .section-download { order: 1; }
+      .section-install { order: 2; }
+      .section-trust { order: 3; }
+      .section-preview { order: 4; }
     }
 
     .hero {
@@ -700,6 +808,14 @@
         <button type="button" id="btn-en" aria-pressed="false">EN</button>
       </div>
     </div>
+    <div class="wrap header-nav-wrap">
+      <nav class="header-nav" aria-label="Sections">
+        <a href="#download" data-i18n="nav.download">Download</a>
+        <a href="#install" data-i18n="nav.install">Install</a>
+        <a href="#preview" data-i18n="nav.preview">Preview</a>
+        <a href="#feedback" data-i18n="nav.feedback">Feedback</a>
+      </nav>
+    </div>
   </header>
 
   <main>
@@ -717,8 +833,8 @@
       </div>
     </section>
 
-    <div class="wrap">
-      <section class="card" id="trust">
+    <div class="wrap page-flow">
+      <section class="card section-trust" id="trust">
         <h2 data-i18n="trust.title">Why sideload?</h2>
         <p data-i18n="trust.lead">
           GridIron IQ is in a closed beta. The APK is distributed directly so invited testers can install before Play Store launch.
@@ -733,7 +849,7 @@
         </ul>
       </section>
 
-      <section class="card" id="preview">
+      <section class="card section-preview" id="preview">
         <h2 data-i18n="gallery.title">App preview</h2>
         <p data-i18n="gallery.lead">Use the arrows to browse · tap a screenshot to zoom</p>
 
@@ -750,7 +866,7 @@
         </div>
       </section>
 
-      <section class="card" id="download">
+      <section class="card section-download" id="download">
         <h2 data-i18n="download.title">Download the beta APK</h2>
         <p data-i18n="download.body">
           This build is distributed outside the Play Store for invited testers only. Verify the SHA-256 checksum after download before installing.
@@ -772,7 +888,7 @@
         </div>
       </section>
 
-      <section class="card">
+      <section class="card section-install" id="install">
         <h2 data-i18n="install.title">Installation (Android)</h2>
         <ol class="steps">
           <li data-i18n="install.step1">Download <strong>app-release.apk</strong> from the release above.</li>
@@ -784,7 +900,7 @@
         </ol>
       </section>
 
-      <section class="card" id="changelog">
+      <section class="card section-changelog" id="changelog">
         <h2 data-i18n="changelog.title">What’s in this build</h2>
         <p class="changelog-meta" data-i18n="changelog.meta">Beta build · 2026-09-15 · v0.1.0-beta.2026-09-15</p>
         <ul class="changelog-list">
@@ -799,7 +915,7 @@
         </p>
       </section>
 
-      <section class="card">
+      <section class="card section-features" id="features">
         <h2 data-i18n="features.title">What you can test</h2>
         <div class="features">
           <div class="feature">
@@ -821,7 +937,7 @@
         </div>
       </section>
 
-      <section class="card" id="feedback">
+      <section class="card section-feedback" id="feedback">
         <h2 data-i18n="feedback.title">Report a bug</h2>
         <p data-i18n="feedback.body">
           Found an issue? Use our structured bug report form — screenshots and steps help us fix things faster.
@@ -836,7 +952,7 @@
         </div>
       </section>
 
-      <section class="card">
+      <section class="card section-notice">
         <div class="notice">
           <span aria-hidden="true">⚠</span>
           <p data-i18n="notice.body">
@@ -846,6 +962,10 @@
       </section>
     </div>
   </main>
+
+  <div class="sticky-cta" id="sticky-cta">
+    <a class="btn btn-primary" id="sticky-download-link" href="#download" data-i18n="sticky.cta">Download APK</a>
+  </div>
 
   <footer>
     <div class="wrap">
@@ -900,6 +1020,11 @@
     const messages = {
       de: {
         'header.tagline': 'NFL Fantasy Companion',
+        'nav.download': 'Download',
+        'nav.install': 'Installation',
+        'nav.preview': 'Vorschau',
+        'nav.feedback': 'Feedback',
+        'sticky.cta': 'APK herunterladen',
         'hero.badge': 'Closed Beta · Android',
         'hero.title': 'Bessere Entscheidungen für deine Sleeper-Ligen',
         'hero.lead': 'GridIron IQ vereint Scouting-Notizen, Exposure-Analyse, Trade Intelligence und Injury Insights in einer App — für ambitionierte Fantasy Manager.',
@@ -976,6 +1101,11 @@
       },
       en: {
         'header.tagline': 'NFL Fantasy Companion',
+        'nav.download': 'Download',
+        'nav.install': 'Install',
+        'nav.preview': 'Preview',
+        'nav.feedback': 'Feedback',
+        'sticky.cta': 'Download APK',
         'hero.badge': 'Closed Beta · Android',
         'hero.title': 'Smarter decisions for your Sleeper leagues',
         'hero.lead': 'GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.',
@@ -1203,7 +1333,19 @@
     });
 
     document.getElementById('download-link').href = RELEASE_URL;
+    document.getElementById('sticky-download-link').href = RELEASE_URL;
     document.getElementById('sha256').textContent = SHA256;
+
+    if ('IntersectionObserver' in window) {
+      const stickyCta = document.getElementById('sticky-cta');
+      const downloadSection = document.getElementById('download');
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          stickyCta.classList.toggle('is-hidden', entry.isIntersecting);
+        });
+      }, { root: null, threshold: 0.35 });
+      observer.observe(downloadSection);
+    }
 
     const feedbackConfigured = FEEDBACK_FORM_URL && !FEEDBACK_FORM_URL.includes('REPLACE_WITH_YOUR_FORM_ID');
     if (feedbackConfigured) {
