@@ -423,11 +423,26 @@
       font-size: 0.88rem;
     }
 
-    .download-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
+    .download-hint {
+      margin: 0.85rem 0 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .install-note {
+      margin: 1rem 0 0;
+      padding: 0.85rem 0.95rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.35);
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .install-steps {
+      margin: 0 0 1rem;
     }
 
     .btn {
@@ -978,13 +993,16 @@
           This build is distributed outside the Play Store for invited testers only. Verify the SHA-256 checksum after download before installing.
         </p>
         <div class="download-row">
-          <a class="btn btn-primary" id="download-link" href="https://github.com/nuebelm/gridironiq-beta/releases/latest" data-i18n="download.cta">
+          <a class="btn btn-primary" id="download-link" href="https://github.com/nuebelm/gridironiq-beta/releases/download/v0.1.0-beta.2026-09-15/app-release.apk" data-i18n="download.cta">
             Download APK
           </a>
-          <a class="btn btn-secondary" href="https://github.com/nuebelm/gridironiq-beta/releases" data-i18n="download.releases">
+          <a class="btn btn-secondary" id="release-link" href="https://github.com/nuebelm/gridironiq-beta/releases/latest" data-i18n="download.releases">
             All releases
           </a>
         </div>
+        <p class="download-hint" data-i18n="download.hint">
+          The download button saves <code>app-release.apk</code> directly. On GitHub, open the release → expand <strong>Assets</strong> → tap <code>app-release.apk</code>.
+        </p>
         <div class="hash-box">
           <span class="hash-label" data-i18n="download.hashLabel">SHA-256 checksum</span>
           <div class="hash-value">
@@ -999,7 +1017,14 @@
 
       <section class="card section-install" id="install">
         <h2 data-i18n="install.title">Installation (Android)</h2>
-        <p data-i18n="install.lead">Sideload the APK in four steps — illustrated below. After that, set up your account (steps 5–7).</p>
+        <p data-i18n="install.lead">After download: allow your file app to install APKs, then set up your account (steps 5–7).</p>
+        <ol class="steps install-steps">
+          <li data-i18n="install.step1">Open <code>app-release.apk</code> from Downloads (Samsung: <strong>My Files</strong>).</li>
+          <li data-i18n="install.step2">If Android blocks the install → tap <strong>Settings</strong> in the dialog → allow unknown apps for <strong>My Files</strong> / <strong>Files</strong> (or the app you used).</li>
+          <li data-i18n="install.step3"><strong>Samsung One UI:</strong> If still blocked → <strong>Settings → Security and privacy → Automatic block</strong> → turn off → tap the APK again.</li>
+          <li data-i18n="install.step4">Confirm installation and open GridIron IQ from your home screen.</li>
+        </ol>
+        <p class="install-note" data-i18n="install.note">Manufacturer labels differ (e.g. Samsung “My Files”, stock Android “Files”). Same flow on most devices: allow the source → open the APK again.</p>
         <div class="install-visual">
           <figure>
             <img src="assets/install-1-download.svg" alt="" loading="lazy">
@@ -1142,8 +1167,9 @@
 
   <script>
     const SHA256 = 'D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6';
+    const APK_DOWNLOAD_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/download/v0.1.0-beta.2026-09-15/app-release.apk';
+    const RELEASE_PAGE_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/latest';
     const VIRUSTOTAL_FILE_URL = 'https://www.virustotal.com/gui/file/d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6';
-    const RELEASE_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/latest';
     // Paste Google Form short link after creation — see docs/ops/28-closed-beta-program.md §4.1
     const FEEDBACK_FORM_URL = 'https://forms.gle/SdjZ9QX6i1RYQMut5';
 
@@ -1226,11 +1252,17 @@
         'download.hashLabel': 'SHA-256 Prüfsumme',
         'download.copy': 'Kopieren',
         'download.copied': 'Kopiert',
+        'download.hint': 'Der Download-Button speichert <code>app-release.apk</code> direkt. Auf GitHub: Release öffnen → <strong>Assets</strong> aufklappen → <code>app-release.apk</code> antippen.',
         'download.virustotal': '<a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal-Report</a> — 1 Heuristik-Treffer, Rest clean (bei Sideload normal). SHA-256 muss vor Installation übereinstimmen.',
         'install.title': 'Installation (Android)',
-        'install.lead': 'APK sideloaden in vier Schritten — unten illustriert. Danach Konto einrichten (Schritte 5–7).',
-        'install.visual1': '<strong>1. Download</strong> app-release.apk vom GitHub Release speichern.',
-        'install.visual2': '<strong>2. Unbekannte Quellen</strong> Installation für Browser oder Dateimanager erlauben.',
+        'install.lead': 'Nach dem Download: Datei-App für APK-Installation freischalten, danach Konto einrichten (Schritte 5–7).',
+        'install.step1': '<code>app-release.apk</code> in Downloads öffnen (Samsung: <strong>Eigene Dateien</strong>).',
+        'install.step2': 'Blockiert Android die Installation → <strong>Einstellungen</strong> im Dialog → Installation für <strong>Eigene Dateien</strong> / <strong>Dateien</strong> erlauben.',
+        'install.step3': '<strong>Samsung One UI:</strong> weiter blockiert → <strong>Einstellungen → Sicherheit und Datenschutz → Automatische Sperre</strong> aus → APK erneut antippen.',
+        'install.step4': 'Installation bestätigen und GridIron IQ vom Home-Bildschirm öffnen.',
+        'install.note': 'Bezeichnungen variieren (Samsung „Eigene Dateien“, Stock-Android „Dateien“). Ablauf meist gleich: Quelle erlauben → APK erneut öffnen.',
+        'install.visual1': '<strong>1. Download</strong> app-release.apk speichern (Button oben oder GitHub Assets).',
+        'install.visual2': '<strong>2. Unbekannte Quellen</strong> für Eigene Dateien / Dateimanager erlauben.',
         'install.visual3': '<strong>3. Installieren</strong> APK öffnen und Installation bestätigen.',
         'install.visual4': '<strong>4. Starten</strong> GridIron IQ vom Home-Bildschirm öffnen.',
         'install.afterTitle': 'Erster Start',
@@ -1323,11 +1355,17 @@
         'download.hashLabel': 'SHA-256 checksum',
         'download.copy': 'Copy',
         'download.copied': 'Copied',
+        'download.hint': 'The download button saves <code>app-release.apk</code> directly. On GitHub, open the release → expand <strong>Assets</strong> → tap <code>app-release.apk</code>.',
         'download.virustotal': '<a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal report</a> — 1 heuristic hit, rest clean (normal for sideload). SHA-256 must match before you install.',
         'install.title': 'Installation (Android)',
-        'install.lead': 'Sideload the APK in four steps — illustrated below. After that, set up your account (steps 5–7).',
-        'install.visual1': '<strong>1. Download</strong> Save app-release.apk from the GitHub release.',
-        'install.visual2': '<strong>2. Unknown sources</strong> Allow installs for your browser or file manager.',
+        'install.lead': 'After download: allow your file app to install APKs, then set up your account (steps 5–7).',
+        'install.step1': 'Open <code>app-release.apk</code> from Downloads (Samsung: <strong>My Files</strong>).',
+        'install.step2': 'If Android blocks the install → tap <strong>Settings</strong> in the dialog → allow unknown apps for <strong>My Files</strong> / <strong>Files</strong>.',
+        'install.step3': '<strong>Samsung One UI:</strong> If still blocked → <strong>Settings → Security and privacy → Automatic block</strong> → turn off → tap the APK again.',
+        'install.step4': 'Confirm installation and open GridIron IQ from your home screen.',
+        'install.note': 'Manufacturer labels differ (e.g. Samsung “My Files”, stock Android “Files”). Same flow on most devices: allow the source → open the APK again.',
+        'install.visual1': '<strong>1. Download</strong> Save app-release.apk (button above or GitHub Assets).',
+        'install.visual2': '<strong>2. Unknown sources</strong> Allow installs for My Files / your file manager.',
         'install.visual3': '<strong>3. Install</strong> Open the APK and confirm installation.',
         'install.visual4': '<strong>4. Launch</strong> Open GridIron IQ from your home screen.',
         'install.afterTitle': 'First launch',
@@ -1516,8 +1554,12 @@
       }
     });
 
-    document.getElementById('download-link').href = RELEASE_URL;
-    document.getElementById('sticky-download-link').href = RELEASE_URL;
+    document.getElementById('download-link').href = APK_DOWNLOAD_URL;
+    document.getElementById('sticky-download-link').href = APK_DOWNLOAD_URL;
+    const releaseLink = document.getElementById('release-link');
+    if (releaseLink) {
+      releaseLink.href = RELEASE_PAGE_URL;
+    }
     document.getElementById('sha256').textContent = SHA256;
 
     if ('IntersectionObserver' in window) {
