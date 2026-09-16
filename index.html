@@ -362,6 +362,63 @@
       font-size: 0.88rem;
     }
 
+    .gallery-section {
+      margin-top: 1.25rem;
+    }
+
+    .gallery-section:first-of-type {
+      margin-top: 0.75rem;
+    }
+
+    .gallery-section h3 {
+      margin: 0 0 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .gallery figure {
+      margin: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.45);
+      transition: border-color 0.15s, transform 0.15s;
+    }
+
+    .gallery figure:hover {
+      border-color: var(--primary-border);
+      transform: translateY(-2px);
+    }
+
+    .gallery a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #020617;
+    }
+
+    .gallery figcaption {
+      padding: 0.55rem 0.65rem 0.65rem;
+      font-size: 0.76rem;
+      line-height: 1.35;
+      color: var(--text-secondary);
+    }
+
     .notice {
       display: flex;
       gap: 0.75rem;
@@ -433,6 +490,69 @@
         <p class="hero-lead" data-i18n="hero.lead">
           GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.
         </p>
+      </section>
+
+      <section class="card" id="preview">
+        <h2 data-i18n="gallery.title">App preview</h2>
+        <p data-i18n="gallery.lead">Screenshots from the closed beta build (German UI). Tap to enlarge.</p>
+
+        <div class="gallery-section">
+          <h3 data-i18n="gallery.section.home">Home</h3>
+          <div class="gallery">
+            <figure><a href="assets/Home1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Home1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.home1">League overview with lineup alerts</figcaption></a></figure>
+            <figure><a href="assets/Home2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Home2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.home2">All leagues at a glance</figcaption></a></figure>
+          </div>
+        </div>
+
+        <div class="gallery-section">
+          <h3 data-i18n="gallery.section.player">Player detail</h3>
+          <div class="gallery">
+            <figure><a href="assets/Details1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Details1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.player1">Usage trends, snaps &amp; scouting notes</figcaption></a></figure>
+            <figure><a href="assets/Details2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Details2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.player2">Market signals &amp; player insights</figcaption></a></figure>
+          </div>
+        </div>
+
+        <div class="gallery-section">
+          <h3 data-i18n="gallery.section.scouting">Scouting Center</h3>
+          <div class="gallery">
+            <figure><a href="assets/ScoutingCenter.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/ScoutingCenter.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.scouting1">Notes, tags, filters &amp; trade flags</figcaption></a></figure>
+          </div>
+        </div>
+
+        <div class="gallery-section">
+          <h3 data-i18n="gallery.section.trade">Trade Board</h3>
+          <div class="gallery">
+            <figure><a href="assets/TradeBoard1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/TradeBoard1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.trade1">Players on the block</figcaption></a></figure>
+            <figure><a href="assets/TradeBoard2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/TradeBoard2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.trade2">Package groups &amp; roster context</figcaption></a></figure>
+          </div>
+        </div>
+
+        <div class="gallery-section">
+          <h3 data-i18n="gallery.section.injury">Injury Matrix</h3>
+          <div class="gallery">
+            <figure><a href="assets/Injury1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Injury1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury1">Weekly injury overview</figcaption></a></figure>
+            <figure><a href="assets/Injury2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Injury2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury2">Filter by status &amp; position</figcaption></a></figure>
+            <figure><a href="assets/Injury3.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Injury3.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury3">Player injury timeline</figcaption></a></figure>
+            <figure><a href="assets/injury4.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/injury4.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury4">Cross-league injury exposure</figcaption></a></figure>
+          </div>
+        </div>
+
+        <div class="gallery-section">
+          <h3 data-i18n="gallery.section.exposure">Exposure</h3>
+          <div class="gallery">
+            <figure><a href="assets/exposure1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/exposure1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.exposure1">Starter exposure across leagues</figcaption></a></figure>
+            <figure><a href="assets/exposure2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/exposure2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.exposure2">Portfolio &amp; correlation view</figcaption></a></figure>
+          </div>
+        </div>
+
+        <div class="gallery-section">
+          <h3 data-i18n="gallery.section.settings">Settings</h3>
+          <div class="gallery">
+            <figure><a href="assets/settings1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/settings1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.settings1">Account &amp; Sleeper connection</figcaption></a></figure>
+            <figure><a href="assets/settings2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/settings2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.settings2">League selection &amp; sync</figcaption></a></figure>
+            <figure><a href="assets/settings3.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/settings3.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.settings3">App info &amp; backup</figcaption></a></figure>
+          </div>
+        </div>
       </section>
 
       <section class="card" id="download">
@@ -541,6 +661,31 @@
         'hero.badge': 'Closed Beta · Android',
         'hero.title': 'Bessere Entscheidungen für deine Sleeper-Ligen',
         'hero.lead': 'GridIron IQ vereint Scouting-Notizen, Exposure-Analyse, Trade Intelligence und Injury Insights in einer App — für ambitionierte Fantasy Manager.',
+        'gallery.title': 'App-Vorschau',
+        'gallery.lead': 'Screenshots aus dem Closed-Beta-Build (deutsche UI). Tippen zum Vergrößern.',
+        'gallery.section.home': 'Home',
+        'gallery.section.player': 'Spielerdetail',
+        'gallery.section.scouting': 'Scouting Center',
+        'gallery.section.trade': 'Trade Board',
+        'gallery.section.injury': 'Injury Matrix',
+        'gallery.section.exposure': 'Exposure',
+        'gallery.section.settings': 'Einstellungen',
+        'gallery.home1': 'Liga-Übersicht mit Lineup-Alerts',
+        'gallery.home2': 'Alle Ligen auf einen Blick',
+        'gallery.player1': 'Usage-Trends, Snaps & Scouting-Notizen',
+        'gallery.player2': 'Markt-Signale & Spieler-Insights',
+        'gallery.scouting1': 'Notizen, Tags, Filter & Trade-Flags',
+        'gallery.trade1': 'Spieler auf dem Block',
+        'gallery.trade2': 'Paket-Gruppen & Kader-Kontext',
+        'gallery.injury1': 'Wöchentliche Injury-Übersicht',
+        'gallery.injury2': 'Filter nach Status & Position',
+        'gallery.injury3': 'Injury-Verlauf pro Spieler',
+        'gallery.injury4': 'Cross-League Injury Exposure',
+        'gallery.exposure1': 'Starter-Exposure über alle Ligen',
+        'gallery.exposure2': 'Portfolio & Korrelationen',
+        'gallery.settings1': 'Konto & Sleeper-Verbindung',
+        'gallery.settings2': 'Ligen auswählen & Sync',
+        'gallery.settings3': 'App-Info & Datensicherung',
         'download.title': 'Beta-APK herunterladen',
         'download.body': 'Dieser Build wird außerhalb des Play Store nur für eingeladene Tester bereitgestellt. Prüfe nach dem Download die SHA-256-Prüfsumme vor der Installation.',
         'download.cta': 'APK herunterladen',
@@ -582,6 +727,31 @@
         'hero.badge': 'Closed Beta · Android',
         'hero.title': 'Smarter decisions for your Sleeper leagues',
         'hero.lead': 'GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.',
+        'gallery.title': 'App preview',
+        'gallery.lead': 'Screenshots from the closed beta build (German UI). Tap to enlarge.',
+        'gallery.section.home': 'Home',
+        'gallery.section.player': 'Player detail',
+        'gallery.section.scouting': 'Scouting Center',
+        'gallery.section.trade': 'Trade Board',
+        'gallery.section.injury': 'Injury Matrix',
+        'gallery.section.exposure': 'Exposure',
+        'gallery.section.settings': 'Settings',
+        'gallery.home1': 'League overview with lineup alerts',
+        'gallery.home2': 'All leagues at a glance',
+        'gallery.player1': 'Usage trends, snaps & scouting notes',
+        'gallery.player2': 'Market signals & player insights',
+        'gallery.scouting1': 'Notes, tags, filters & trade flags',
+        'gallery.trade1': 'Players on the block',
+        'gallery.trade2': 'Package groups & roster context',
+        'gallery.injury1': 'Weekly injury overview',
+        'gallery.injury2': 'Filter by status & position',
+        'gallery.injury3': 'Player injury timeline',
+        'gallery.injury4': 'Cross-league injury exposure',
+        'gallery.exposure1': 'Starter exposure across leagues',
+        'gallery.exposure2': 'Portfolio & correlation view',
+        'gallery.settings1': 'Account & Sleeper connection',
+        'gallery.settings2': 'League selection & sync',
+        'gallery.settings3': 'App info & backup',
         'download.title': 'Download the beta APK',
         'download.body': 'This build is distributed outside the Play Store for invited testers only. Verify the SHA-256 checksum after download before installing.',
         'download.cta': 'Download APK',
