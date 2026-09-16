@@ -46,13 +46,20 @@ function rewriteLinks(markdown) {
     .replace(/\]\(en\.md([^)]*)\)/g, '](quickstart-en.html$1)');
 }
 
-function slugify(text) {
+function githubHeadingSlug(text) {
   return text
+    .replace(/<[^>]+>/g, '')
+    .replace(/\(([^)]*)\)/g, ' $1 ')
     .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
+    .normalize('NFC')
+    .replace(/\s*&\s*/g, '--')
+    .replace(/[^\p{L}\p{N}\s-]/gu, ' ')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+function slugify(text) {
+  return githubHeadingSlug(text);
 }
 
 function inline(text) {
@@ -93,7 +100,15 @@ function parseTable(lines) {
 function markdownToHtml(markdown) {
   const lines = markdown.replace(/\r\n/g, '\n').split('\n');
   const out = [];
+  const slugCounts = new Map();
   let i = 0;
+
+  function nextHeadingId(title) {
+    const base = githubHeadingSlug(title);
+    const count = slugCounts.get(base) ?? 0;
+    slugCounts.set(base, count + 1);
+    return count === 0 ? base : `${base}-${count}`;
+  }
 
   while (i < lines.length) {
     const line = lines[i];
@@ -112,8 +127,9 @@ function markdownToHtml(markdown) {
     const heading = line.match(/^(#{1,3})\s+(.+)$/);
     if (heading) {
       const level = heading[1].length;
-      const text = inline(heading[2]);
-      const id = slugify(heading[2].replace(/<[^>]+>/g, ''));
+      const rawTitle = heading[2];
+      const text = inline(rawTitle);
+      const id = nextHeadingId(rawTitle);
       out.push(`<h${level} id="${id}">${text}</h${level}>`);
       i += 1;
       continue;
