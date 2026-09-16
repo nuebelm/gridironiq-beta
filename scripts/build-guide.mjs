@@ -19,8 +19,8 @@ const FILES = [
 ];
 
 const BETA_BANNER = {
-  de: '<p class="doc-beta"><strong>Closed Beta:</strong> GridIron IQ ist noch nicht im Play Store. APK nur von dieser Landing Page laden. Pro wird für Beta-Tester nach E-Mail an <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> manuell freigeschaltet.</p>',
-  en: '<p class="doc-beta"><strong>Closed beta:</strong> GridIron IQ is not in the Play Store yet. Download the APK only from this landing page. Pro is enabled manually for beta testers after email to <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a>.</p>',
+  de: '<p class="doc-beta"><strong>Closed Beta:</strong> APK nur von dieser Landing Page. <strong>Neue Konten starten als Free</strong> — Pro erst nach E-Mail mit Benutzernamen an <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> (manuell, meist &lt;24 h).</p>',
+  en: '<p class="doc-beta"><strong>Closed beta:</strong> Download the APK only from this landing page. <strong>New accounts start on Free</strong> — Pro only after you email your username to <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> (manual activation, usually &lt;24h).</p>',
 };
 
 function rewriteLinks(markdown) {
