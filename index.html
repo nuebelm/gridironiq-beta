@@ -950,7 +950,7 @@
           <li data-i18n="trust.item4">The app needs internet access only — no SMS, contacts, or banking permissions.</li>
           <li data-i18n="trust.item5">App source stays private; landing page and APK releases are public on GitHub.</li>
           <li data-i18n="trust.item6">Provider: Markus Nübel · <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> · Impressum on the privacy page linked above.</li>
-          <li data-i18n="trust.item7">Independent scan: search SHA-256 on <a href="https://www.virustotal.com/gui/home/search?query=d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">VirusTotal</a> — if no report yet, upload <code>app-release.apk</code> from our GitHub release once.</li>
+          <li data-i18n="trust.item7">Independent scan: <a href="https://www.virustotal.com/gui/file/d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">VirusTotal report</a> for this build. Sideloaded beta APKs outside the Play Store are sometimes flagged by a few heuristic engines — always verify SHA-256 and read the full vendor breakdown.</li>
         </ul>
       </section>
 
@@ -993,7 +993,7 @@
           </div>
         </div>
         <p class="scan-link" data-i18n="download.virustotal">
-          Optional: <a href="https://www.virustotal.com/gui/home/search?query=d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">Search this SHA-256 on VirusTotal</a> — no report yet? Upload the APK from the release link above.
+          <a href="https://www.virustotal.com/gui/file/d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">VirusTotal report</a> for this APK — isolated heuristic flags on sideload builds are common; SHA-256 must match before you install.
         </p>
       </section>
 
@@ -1142,6 +1142,7 @@
 
   <script>
     const SHA256 = 'D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6';
+    const VIRUSTOTAL_FILE_URL = 'https://www.virustotal.com/gui/file/d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6';
     const RELEASE_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/latest';
     // Paste Google Form short link after creation — see docs/ops/28-closed-beta-program.md §4.1
     const FEEDBACK_FORM_URL = 'https://forms.gle/SdjZ9QX6i1RYQMut5';
@@ -1189,7 +1190,7 @@
         'trust.item4': 'Die App benötigt nur Internet — kein Zugriff auf SMS, Kontakte oder Banking.',
         'trust.item5': 'App-Quellcode bleibt privat; Landing Page und APK-Releases sind öffentlich auf GitHub.',
         'trust.item6': 'Anbieter: Markus Nübel · <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> · Impressum auf der verlinkten Datenschutzseite.',
-        'trust.item7': 'Unabhängiger Scan: SHA-256 auf <a href="https://www.virustotal.com/gui/home/search?query=d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">VirusTotal</a> suchen — noch kein Report? <code>app-release.apk</code> vom GitHub Release einmal hochladen.',
+        'trust.item7': 'Unabhängiger Scan: <a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal-Report</a> zu diesem Build. Bei sideload-APKs außerhalb des Play Stores melden einzelne Heuristik-Scanner oft False Positives — SHA-256 vergleichen und die Analyse im Detail prüfen.',
         'changelog.title': 'Dieser Build',
         'changelog.meta': 'Beta-Build · 2026-09-15 · v0.1.0-beta.2026-09-15',
         'changelog.item1': 'System-Infos in der App + Verlauf in Einstellungen',
@@ -1225,7 +1226,7 @@
         'download.hashLabel': 'SHA-256 Prüfsumme',
         'download.copy': 'Kopieren',
         'download.copied': 'Kopiert',
-        'download.virustotal': 'Optional: <a href="https://www.virustotal.com/gui/home/search?query=d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">SHA-256 auf VirusTotal suchen</a> — noch kein Report? APK vom Release oben hochladen.',
+        'download.virustotal': '<a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal-Report</a> zu dieser APK — vereinzelt Heuristik-Treffer bei Sideload sind üblich; SHA-256 muss vor Installation übereinstimmen.',
         'install.title': 'Installation (Android)',
         'install.lead': 'APK sideloaden in vier Schritten — unten illustriert. Danach Konto einrichten (Schritte 5–7).',
         'install.visual1': '<strong>1. Download</strong> app-release.apk vom GitHub Release speichern.',
@@ -1286,7 +1287,7 @@
         'trust.item4': 'The app needs internet access only — no SMS, contacts, or banking permissions.',
         'trust.item5': 'App source stays private; landing page and APK releases are public on GitHub.',
         'trust.item6': 'Provider: Markus Nübel · <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> · Impressum on the privacy page linked above.',
-        'trust.item7': 'Independent scan: search SHA-256 on <a href="https://www.virustotal.com/gui/home/search?query=d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">VirusTotal</a> — if no report yet, upload <code>app-release.apk</code> from our GitHub release once.',
+        'trust.item7': 'Independent scan: <a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal report</a> for this build. Sideloaded beta APKs outside the Play Store are sometimes flagged by a few heuristic engines — always verify SHA-256 and read the full vendor breakdown.',
         'changelog.title': 'What’s in this build',
         'changelog.meta': 'Beta build · 2026-09-15 · v0.1.0-beta.2026-09-15',
         'changelog.item1': 'In-app system announcements + history in Settings',
@@ -1322,7 +1323,7 @@
         'download.hashLabel': 'SHA-256 checksum',
         'download.copy': 'Copy',
         'download.copied': 'Copied',
-        'download.virustotal': 'Optional: <a href="https://www.virustotal.com/gui/home/search?query=d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">Search this SHA-256 on VirusTotal</a> — no report yet? Upload the APK from the release link above.',
+        'download.virustotal': '<a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal report</a> for this APK — isolated heuristic flags on sideload builds are common; SHA-256 must match before you install.',
         'install.title': 'Installation (Android)',
         'install.lead': 'Sideload the APK in four steps — illustrated below. After that, set up your account (steps 5–7).',
         'install.visual1': '<strong>1. Download</strong> Save app-release.apk from the GitHub release.',
