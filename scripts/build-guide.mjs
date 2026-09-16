@@ -25,6 +25,7 @@ const BETA_BANNER = {
 
 function rewriteLinks(markdown) {
   return markdown
+    .replace(/\[([^\]]+)\]\((?:\.\.\/){1,2}(?:engineering|ops|project-plan|qa|design|legal)\/[^)]+\)/g, '$1')
     .replace(/```mermaid[\s\S]*?```/g, (block) => {
       const lines = block
         .replace(/```mermaid\n?/, '')
