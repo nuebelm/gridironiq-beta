@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0f172a">
   <title>GridIron IQ — Closed Beta</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
-  <link rel="preload" href="assets/background.jpg" as="image">
+  <link rel="preload" href="assets/hero1.jpg" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -151,8 +151,8 @@
       padding: 1.5rem 0 1.75rem;
       margin-bottom: 1.25rem;
       background:
-        linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.9) 55%, rgba(15, 23, 42, 0.97) 100%),
-        url('assets/background.jpg') center 38% / cover no-repeat;
+        linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.86) 52%, rgba(15, 23, 42, 0.97) 100%),
+        url('assets/hero1.jpg') center 42% / cover no-repeat;
       border-bottom: 1px solid var(--border);
     }
 
@@ -161,8 +161,19 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 55% at 50% 38%, rgba(56, 189, 248, 0.12), transparent 65%),
+        radial-gradient(ellipse 70% 55% at 50% 38%, rgba(56, 189, 248, 0.1), transparent 65%),
         radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.35), transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(32%, 260px);
+      height: 110px;
+      background: linear-gradient(225deg, rgba(2, 10, 22, 0.88) 0%, transparent 72%);
       pointer-events: none;
     }
 
@@ -256,6 +267,36 @@
 
     .card p:last-child {
       margin-bottom: 0;
+    }
+
+    .trust-list,
+    .changelog-list {
+      margin: 0.65rem 0 0;
+      padding-left: 1.15rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    .trust-list li + li,
+    .changelog-list li + li {
+      margin-top: 0.45rem;
+    }
+
+    .changelog-meta {
+      margin: 0 0 0.65rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .changelog-limits {
+      margin-top: 0.85rem;
+      padding: 0.85rem 0.95rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.35);
+      color: var(--text-secondary);
+      font-size: 0.88rem;
     }
 
     .download-row {
@@ -677,6 +718,21 @@
     </section>
 
     <div class="wrap">
+      <section class="card" id="trust">
+        <h2 data-i18n="trust.title">Why sideload?</h2>
+        <p data-i18n="trust.lead">
+          GridIron IQ is in a closed beta. The APK is distributed directly so invited testers can install before Play Store launch.
+        </p>
+        <ul class="trust-list">
+          <li data-i18n="trust.item1">Closed beta — not in the Play Store yet (Google Play Console / D-U-N-S in progress).</li>
+          <li data-i18n="trust.item2">Privacy policy: <a href="https://nuebelm.github.io/gridironiq-privacy/">gridironiq-privacy</a> — same transparency as this landing page.</li>
+          <li data-i18n="trust.item3">Download only from this page’s GitHub Release — compare the SHA-256 checksum before installing.</li>
+          <li data-i18n="trust.item4">The app needs internet access only — no SMS, contacts, or banking permissions.</li>
+          <li data-i18n="trust.item5">App source stays private; landing page and APK releases are public on GitHub.</li>
+          <li data-i18n="trust.item6">Questions? <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a></li>
+        </ul>
+      </section>
+
       <section class="card" id="preview">
         <h2 data-i18n="gallery.title">App preview</h2>
         <p data-i18n="gallery.lead">Use the arrows to browse · tap a screenshot to zoom</p>
@@ -726,6 +782,21 @@
           <li data-i18n="install.step5">Send a short email with your <strong>username</strong> to <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> — we manually enable Pro for beta testers.</li>
           <li data-i18n="install.step6">Connect your Sleeper account under Settings and enable your leagues.</li>
         </ol>
+      </section>
+
+      <section class="card" id="changelog">
+        <h2 data-i18n="changelog.title">What’s in this build</h2>
+        <p class="changelog-meta" data-i18n="changelog.meta">Beta build · 2026-09-15 · v0.1.0-beta.2026-09-15</p>
+        <ul class="changelog-list">
+          <li data-i18n="changelog.item1">In-app system announcements + history in Settings</li>
+          <li data-i18n="changelog.item2">Faster login profile load; scouting sync spinner capped at ~8 s</li>
+          <li data-i18n="changelog.item3">Paywall modal scroll fix</li>
+          <li data-i18n="changelog.item4">Trade Board linked package groups</li>
+          <li data-i18n="changelog.item5">Beta build without dev menu</li>
+        </ul>
+        <p class="changelog-limits" data-i18n="changelog.limits">
+          Known limits: no Play Store · no Google Sign-In yet · new accounts start on Free (Pro unlocked manually after email to support@gridiron-iq.de) · no Sleeper deep links · no store subscription.
+        </p>
       </section>
 
       <section class="card">
@@ -832,6 +903,22 @@
         'hero.badge': 'Closed Beta · Android',
         'hero.title': 'Bessere Entscheidungen für deine Sleeper-Ligen',
         'hero.lead': 'GridIron IQ vereint Scouting-Notizen, Exposure-Analyse, Trade Intelligence und Injury Insights in einer App — für ambitionierte Fantasy Manager.',
+        'trust.title': 'Warum sideload?',
+        'trust.lead': 'GridIron IQ ist in der Closed Beta. Die APK wird direkt verteilt, damit eingeladene Tester installieren können — bevor der Play-Store-Launch kommt.',
+        'trust.item1': 'Closed Beta — noch nicht im Play Store (Google Play Console / D-U-N-S in Arbeit).',
+        'trust.item2': 'Datenschutz: <a href="https://nuebelm.github.io/gridironiq-privacy/">gridironiq-privacy</a> — gleiche Transparenz wie diese Landing Page.',
+        'trust.item3': 'Download nur vom GitHub Release dieser Seite — SHA-256-Prüfsumme vor Installation vergleichen.',
+        'trust.item4': 'Die App benötigt nur Internet — kein Zugriff auf SMS, Kontakte oder Banking.',
+        'trust.item5': 'App-Quellcode bleibt privat; Landing Page und APK-Releases sind öffentlich auf GitHub.',
+        'trust.item6': 'Fragen? <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a>',
+        'changelog.title': 'Dieser Build',
+        'changelog.meta': 'Beta-Build · 2026-09-15 · v0.1.0-beta.2026-09-15',
+        'changelog.item1': 'System-Infos in der App + Verlauf in Einstellungen',
+        'changelog.item2': 'Schnelleres Profil-Laden beim Login; Scouting-Sync-Spinner max. ~8 s',
+        'changelog.item3': 'Paywall-Modal Scroll-Fix',
+        'changelog.item4': 'Trade Board: verknüpfte Paket-Gruppen',
+        'changelog.item5': 'Beta-Build ohne Dev-Menü',
+        'changelog.limits': 'Bekannte Grenzen: kein Play Store · kein Google Sign-In (noch) · neue Konten = Free (Pro nach E-Mail an support@gridiron-iq.de) · kein Sleeper-Deep-Link · kein Store-Abo.',
         'gallery.title': 'App-Vorschau',
         'gallery.lead': 'Mit Pfeilen blättern · Screenshot antippen zum Vergrößern',
         'gallery.close': 'Schließen',
@@ -892,6 +979,22 @@
         'hero.badge': 'Closed Beta · Android',
         'hero.title': 'Smarter decisions for your Sleeper leagues',
         'hero.lead': 'GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.',
+        'trust.title': 'Why sideload?',
+        'trust.lead': 'GridIron IQ is in a closed beta. The APK is distributed directly so invited testers can install before Play Store launch.',
+        'trust.item1': 'Closed beta — not in the Play Store yet (Google Play Console / D-U-N-S in progress).',
+        'trust.item2': 'Privacy policy: <a href="https://nuebelm.github.io/gridironiq-privacy/">gridironiq-privacy</a> — same transparency as this landing page.',
+        'trust.item3': 'Download only from this page’s GitHub Release — compare the SHA-256 checksum before installing.',
+        'trust.item4': 'The app needs internet access only — no SMS, contacts, or banking permissions.',
+        'trust.item5': 'App source stays private; landing page and APK releases are public on GitHub.',
+        'trust.item6': 'Questions? <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a>',
+        'changelog.title': 'What’s in this build',
+        'changelog.meta': 'Beta build · 2026-09-15 · v0.1.0-beta.2026-09-15',
+        'changelog.item1': 'In-app system announcements + history in Settings',
+        'changelog.item2': 'Faster login profile load; scouting sync spinner capped at ~8 s',
+        'changelog.item3': 'Paywall modal scroll fix',
+        'changelog.item4': 'Trade Board linked package groups',
+        'changelog.item5': 'Beta build without dev menu',
+        'changelog.limits': 'Known limits: no Play Store · no Google Sign-In yet · new accounts start on Free (Pro unlocked manually after email to support@gridiron-iq.de) · no Sleeper deep links · no store subscription.',
         'gallery.title': 'App preview',
         'gallery.lead': 'Use arrows to browse · tap a screenshot to zoom',
         'gallery.close': 'Close',
