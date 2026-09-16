@@ -19,12 +19,8 @@ Public landing page and APK releases for the GridIron IQ closed beta (Android si
 | `assets/teaser.jpg` | Open Graph / social link preview |
 | Releases | APK downloads (`app-release.apk`) |
 
-## Maintainer
+## Support
 
-Upload new beta builds via GitHub Releases. Update the SHA-256 in `index.html` when the APK changes.
-
-Regenerate user docs after editing `my-fantasy-app/docs/quickstart/` or `user-guide/`:
-
-```bash
-node scripts/build-guide.mjs
-```
+- **Beta page:** https://nuebelm.github.io/gridironiq-beta/
+- **Feedback / bugs:** https://forms.gle/SdjZ9QX6i1RYQMut5
+- **E-Mail:** support@gridiron-iq.de
