@@ -362,61 +362,194 @@
       font-size: 0.88rem;
     }
 
-    .gallery-section {
-      margin-top: 1.25rem;
-    }
-
-    .gallery-section:first-of-type {
+    .carousel-wrap {
+      position: relative;
       margin-top: 0.75rem;
     }
 
-    .gallery-section h3 {
-      margin: 0 0 0.75rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-      gap: 0.85rem;
-    }
-
-    .gallery figure {
-      margin: 0;
-      border-radius: var(--radius);
+    .carousel-viewport {
       overflow: hidden;
+      border-radius: var(--radius);
       border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.45);
-      transition: border-color 0.15s, transform 0.15s;
+      background: rgba(15, 23, 42, 0.55);
     }
 
-    .gallery figure:hover {
-      border-color: var(--primary-border);
-      transform: translateY(-2px);
+    .carousel-track {
+      display: flex;
+      transition: transform 0.32s ease;
+      will-change: transform;
     }
 
-    .gallery a {
-      display: block;
-      text-decoration: none;
-      color: inherit;
+    .carousel-slide {
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: min(380px, 52vh);
+      padding: 0.75rem 0.5rem;
     }
 
-    .gallery img {
-      width: 100%;
+    .carousel-slide img {
+      max-height: min(360px, 48vh);
+      max-width: min(100%, 280px);
+      width: auto;
       height: auto;
-      display: block;
-      background: #020617;
+      border-radius: 10px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      cursor: zoom-in;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
-    .gallery figcaption {
-      padding: 0.55rem 0.65rem 0.65rem;
-      font-size: 0.76rem;
-      line-height: 1.35;
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .carousel-btn:hover {
+      border-color: var(--primary-border);
+      background: var(--surface);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .carousel-btn.prev { left: -0.35rem; }
+    .carousel-btn.next { right: -0.35rem; }
+
+    .carousel-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .carousel-caption {
+      margin: 0;
+      font-size: 0.9rem;
       color: var(--text-secondary);
+      flex: 1;
+    }
+
+    .carousel-counter {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox[hidden] {
+      display: none !important;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: min(520px, 96vw);
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-inner img {
+      max-width: 100%;
+      max-height: calc(92vh - 4rem);
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .lightbox-caption {
+      margin: 0.75rem 0 0;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1001;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.95);
+      color: var(--text);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      border-color: var(--primary-border);
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1001;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.95);
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .lightbox-nav.prev { left: 1rem; }
+    .lightbox-nav.next { right: 1rem; }
+
+    .lightbox-nav:hover,
+    .lightbox-close:hover {
+      background: var(--surface);
+    }
+
+    @media (max-width: 640px) {
+      .carousel-btn.prev { left: 0.15rem; }
+      .carousel-btn.next { right: 0.15rem; }
+      .carousel-btn {
+        width: 36px;
+        height: 36px;
+      }
+      .lightbox-nav.prev { left: 0.35rem; }
+      .lightbox-nav.next { right: 0.35rem; }
     }
 
     .notice {
@@ -494,64 +627,18 @@
 
       <section class="card" id="preview">
         <h2 data-i18n="gallery.title">App preview</h2>
-        <p data-i18n="gallery.lead">Screenshots from the closed beta build (German UI). Tap to enlarge.</p>
+        <p data-i18n="gallery.lead">Use the arrows to browse · double-click a screenshot to zoom</p>
 
-        <div class="gallery-section">
-          <h3 data-i18n="gallery.section.home">Home</h3>
-          <div class="gallery">
-            <figure><a href="assets/Home1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Home1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.home1">League overview with lineup alerts</figcaption></a></figure>
-            <figure><a href="assets/Home2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Home2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.home2">All leagues at a glance</figcaption></a></figure>
+        <div class="carousel-wrap">
+          <button type="button" class="carousel-btn prev" id="carousel-prev" aria-label="Previous screenshot">‹</button>
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carousel-track"></div>
           </div>
+          <button type="button" class="carousel-btn next" id="carousel-next" aria-label="Next screenshot">›</button>
         </div>
-
-        <div class="gallery-section">
-          <h3 data-i18n="gallery.section.player">Player detail</h3>
-          <div class="gallery">
-            <figure><a href="assets/Details1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Details1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.player1">Usage trends, snaps &amp; scouting notes</figcaption></a></figure>
-            <figure><a href="assets/Details2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Details2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.player2">Market signals &amp; player insights</figcaption></a></figure>
-          </div>
-        </div>
-
-        <div class="gallery-section">
-          <h3 data-i18n="gallery.section.scouting">Scouting Center</h3>
-          <div class="gallery">
-            <figure><a href="assets/ScoutingCenter.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/ScoutingCenter.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.scouting1">Notes, tags, filters &amp; trade flags</figcaption></a></figure>
-          </div>
-        </div>
-
-        <div class="gallery-section">
-          <h3 data-i18n="gallery.section.trade">Trade Board</h3>
-          <div class="gallery">
-            <figure><a href="assets/TradeBoard1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/TradeBoard1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.trade1">Players on the block</figcaption></a></figure>
-            <figure><a href="assets/TradeBoard2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/TradeBoard2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.trade2">Package groups &amp; roster context</figcaption></a></figure>
-          </div>
-        </div>
-
-        <div class="gallery-section">
-          <h3 data-i18n="gallery.section.injury">Injury Matrix</h3>
-          <div class="gallery">
-            <figure><a href="assets/Injury1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Injury1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury1">Weekly injury overview</figcaption></a></figure>
-            <figure><a href="assets/Injury2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Injury2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury2">Filter by status &amp; position</figcaption></a></figure>
-            <figure><a href="assets/Injury3.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/Injury3.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury3">Player injury timeline</figcaption></a></figure>
-            <figure><a href="assets/injury4.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/injury4.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.injury4">Cross-league injury exposure</figcaption></a></figure>
-          </div>
-        </div>
-
-        <div class="gallery-section">
-          <h3 data-i18n="gallery.section.exposure">Exposure</h3>
-          <div class="gallery">
-            <figure><a href="assets/exposure1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/exposure1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.exposure1">Starter exposure across leagues</figcaption></a></figure>
-            <figure><a href="assets/exposure2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/exposure2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.exposure2">Portfolio &amp; correlation view</figcaption></a></figure>
-          </div>
-        </div>
-
-        <div class="gallery-section">
-          <h3 data-i18n="gallery.section.settings">Settings</h3>
-          <div class="gallery">
-            <figure><a href="assets/settings1.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/settings1.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.settings1">Account &amp; Sleeper connection</figcaption></a></figure>
-            <figure><a href="assets/settings2.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/settings2.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.settings2">League selection &amp; sync</figcaption></a></figure>
-            <figure><a href="assets/settings3.jpg" target="_blank" rel="noopener noreferrer"><img src="assets/settings3.jpg" alt="" loading="lazy"><figcaption data-i18n="gallery.settings3">App info &amp; backup</figcaption></a></figure>
-          </div>
+        <div class="carousel-meta">
+          <p class="carousel-caption" id="carousel-caption"></p>
+          <p class="carousel-counter" id="carousel-counter"></p>
         </div>
       </section>
 
@@ -649,11 +736,44 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <button type="button" class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous">‹</button>
+    <div class="lightbox-inner">
+      <img id="lightbox-img" alt="">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+    <button type="button" class="lightbox-nav next" id="lightbox-next" aria-label="Next">›</button>
+  </div>
+
   <script>
     const SHA256 = 'D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6';
     const RELEASE_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/latest';
     // Paste Google Form short link after creation — see docs/ops/28-closed-beta-program.md §4.1
     const FEEDBACK_FORM_URL = 'https://forms.gle/SdjZ9QX6i1RYQMut5';
+
+    const GALLERY_SLIDES = [
+      { src: 'assets/Home1.jpg', key: 'gallery.home1' },
+      { src: 'assets/Home2.jpg', key: 'gallery.home2' },
+      { src: 'assets/Details1.jpg', key: 'gallery.player1' },
+      { src: 'assets/Details2.jpg', key: 'gallery.player2' },
+      { src: 'assets/ScoutingCenter.jpg', key: 'gallery.scouting1' },
+      { src: 'assets/TradeBoard1.jpg', key: 'gallery.trade1' },
+      { src: 'assets/TradeBoard2.jpg', key: 'gallery.trade2' },
+      { src: 'assets/Injury1.jpg', key: 'gallery.injury1' },
+      { src: 'assets/Injury2.jpg', key: 'gallery.injury2' },
+      { src: 'assets/Injury3.jpg', key: 'gallery.injury3' },
+      { src: 'assets/injury4.jpg', key: 'gallery.injury4' },
+      { src: 'assets/exposure1.jpg', key: 'gallery.exposure1' },
+      { src: 'assets/exposure2.jpg', key: 'gallery.exposure2' },
+      { src: 'assets/settings1.jpg', key: 'gallery.settings1' },
+      { src: 'assets/settings2.jpg', key: 'gallery.settings2' },
+      { src: 'assets/settings3.jpg', key: 'gallery.settings3' },
+    ];
+
+    let carouselIndex = 0;
+    let lightboxIndex = 0;
+    let activeLang = 'de';
 
     const messages = {
       de: {
@@ -662,14 +782,8 @@
         'hero.title': 'Bessere Entscheidungen für deine Sleeper-Ligen',
         'hero.lead': 'GridIron IQ vereint Scouting-Notizen, Exposure-Analyse, Trade Intelligence und Injury Insights in einer App — für ambitionierte Fantasy Manager.',
         'gallery.title': 'App-Vorschau',
-        'gallery.lead': 'Screenshots aus dem Closed-Beta-Build (deutsche UI). Tippen zum Vergrößern.',
-        'gallery.section.home': 'Home',
-        'gallery.section.player': 'Spielerdetail',
-        'gallery.section.scouting': 'Scouting Center',
-        'gallery.section.trade': 'Trade Board',
-        'gallery.section.injury': 'Injury Matrix',
-        'gallery.section.exposure': 'Exposure',
-        'gallery.section.settings': 'Einstellungen',
+        'gallery.lead': 'Mit Pfeilen blättern · Doppelklick auf Screenshot zum Vergrößern',
+        'gallery.close': 'Schließen',
         'gallery.home1': 'Liga-Übersicht mit Lineup-Alerts',
         'gallery.home2': 'Alle Ligen auf einen Blick',
         'gallery.player1': 'Usage-Trends, Snaps & Scouting-Notizen',
@@ -728,14 +842,8 @@
         'hero.title': 'Smarter decisions for your Sleeper leagues',
         'hero.lead': 'GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.',
         'gallery.title': 'App preview',
-        'gallery.lead': 'Screenshots from the closed beta build (German UI). Tap to enlarge.',
-        'gallery.section.home': 'Home',
-        'gallery.section.player': 'Player detail',
-        'gallery.section.scouting': 'Scouting Center',
-        'gallery.section.trade': 'Trade Board',
-        'gallery.section.injury': 'Injury Matrix',
-        'gallery.section.exposure': 'Exposure',
-        'gallery.section.settings': 'Settings',
+        'gallery.lead': 'Use arrows to browse · double-click a screenshot to zoom',
+        'gallery.close': 'Close',
         'gallery.home1': 'League overview with lineup alerts',
         'gallery.home2': 'All leagues at a glance',
         'gallery.player1': 'Usage trends, snaps & scouting notes',
@@ -796,7 +904,71 @@
       return navigator.language?.toLowerCase().startsWith('de') ? 'de' : 'en';
     }
 
+    function getGalleryCaption(index) {
+      const dict = messages[activeLang] || messages.en;
+      const key = GALLERY_SLIDES[index]?.key;
+      return key && dict[key] ? dict[key] : '';
+    }
+
+    function buildCarousel() {
+      const track = document.getElementById('carousel-track');
+      track.innerHTML = GALLERY_SLIDES.map(function (slide, index) {
+        return (
+          '<div class="carousel-slide">' +
+          '<img src="' + slide.src + '" alt="" loading="' + (index === 0 ? 'eager' : 'lazy') + '" data-index="' + index + '">' +
+          '</div>'
+        );
+      }).join('');
+
+      track.querySelectorAll('img').forEach(function (img) {
+        img.addEventListener('dblclick', function () {
+          openLightbox(parseInt(img.getAttribute('data-index'), 10));
+        });
+      });
+    }
+
+    function updateCarousel() {
+      const track = document.getElementById('carousel-track');
+      track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+      document.getElementById('carousel-caption').textContent = getGalleryCaption(carouselIndex);
+      document.getElementById('carousel-counter').textContent = (carouselIndex + 1) + ' / ' + GALLERY_SLIDES.length;
+      document.getElementById('carousel-prev').disabled = carouselIndex === 0;
+      document.getElementById('carousel-next').disabled = carouselIndex === GALLERY_SLIDES.length - 1;
+    }
+
+    function moveCarousel(delta) {
+      carouselIndex = Math.max(0, Math.min(GALLERY_SLIDES.length - 1, carouselIndex + delta));
+      updateCarousel();
+    }
+
+    function openLightbox(index) {
+      lightboxIndex = index;
+      updateLightbox();
+      const lightbox = document.getElementById('lightbox');
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const slide = GALLERY_SLIDES[lightboxIndex];
+      document.getElementById('lightbox-img').src = slide.src;
+      document.getElementById('lightbox-caption').textContent = getGalleryCaption(lightboxIndex);
+    }
+
+    function moveLightbox(delta) {
+      lightboxIndex = (lightboxIndex + delta + GALLERY_SLIDES.length) % GALLERY_SLIDES.length;
+      updateLightbox();
+      carouselIndex = lightboxIndex;
+      updateCarousel();
+    }
+
     function applyLanguage(lang) {
+      activeLang = lang;
       const dict = messages[lang] || messages.en;
       document.documentElement.lang = lang;
       document.title = dict['meta.title'];
@@ -813,6 +985,13 @@
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-de').setAttribute('aria-pressed', lang === 'de' ? 'true' : 'false');
       document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+
+      document.getElementById('lightbox-close').setAttribute('aria-label', dict['gallery.close']);
+
+      updateCarousel();
+      if (!document.getElementById('lightbox').hidden) {
+        updateLightbox();
+      }
 
       localStorage.setItem('giiq-beta-lang', lang);
     }
@@ -848,6 +1027,28 @@
       document.getElementById('feedback-link').href = 'mailto:support@gridiron-iq.de?subject=GridIron%20IQ%20Beta%20Bug';
       document.getElementById('footer-feedback-link').href = 'mailto:support@gridiron-iq.de?subject=GridIron%20IQ%20Beta%20Bug';
     }
+
+    document.getElementById('carousel-prev').addEventListener('click', function () { moveCarousel(-1); });
+    document.getElementById('carousel-next').addEventListener('click', function () { moveCarousel(1); });
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', function () { moveLightbox(-1); });
+    document.getElementById('lightbox-next').addEventListener('click', function () { moveLightbox(1); });
+    document.getElementById('lightbox').addEventListener('click', function (event) {
+      if (event.target.id === 'lightbox') closeLightbox();
+    });
+    document.addEventListener('keydown', function (event) {
+      const lightboxOpen = !document.getElementById('lightbox').hidden;
+      if (event.key === 'Escape') {
+        if (lightboxOpen) closeLightbox();
+        return;
+      }
+      if (!lightboxOpen) return;
+      if (event.key === 'ArrowLeft') moveLightbox(-1);
+      if (event.key === 'ArrowRight') moveLightbox(1);
+    });
+
+    buildCarousel();
+    updateCarousel();
 
     applyLanguage(detectLanguage());
   </script>
