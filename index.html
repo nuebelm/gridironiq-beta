@@ -425,12 +425,9 @@
 
     .carousel-slide img {
       display: block;
-      width: min(100%, 200px);
-      aspect-ratio: 1080 / 2340;
-      height: auto;
-      max-height: min(300px, 40vh);
-      object-fit: cover;
-      object-position: top left;
+      width: auto;
+      height: min(300px, 40vh);
+      max-width: min(100%, 200px);
       border-radius: 10px;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
       cursor: zoom-in;
@@ -521,12 +518,10 @@
 
     .lightbox-inner img {
       display: block;
-      width: min(100%, 520px);
+      width: auto;
+      max-width: min(100%, 520px);
       max-height: calc(92vh - 4rem);
-      aspect-ratio: 1080 / 2340;
       height: auto;
-      object-fit: cover;
-      object-position: top left;
       border-radius: 12px;
       box-shadow: var(--shadow);
     }
@@ -684,7 +679,7 @@
     <div class="wrap">
       <section class="card" id="preview">
         <h2 data-i18n="gallery.title">App preview</h2>
-        <p data-i18n="gallery.lead">Use the arrows to browse · double-click a screenshot to zoom</p>
+        <p data-i18n="gallery.lead">Use the arrows to browse · tap a screenshot to zoom</p>
 
         <div class="carousel-wrap">
           <button type="button" class="carousel-btn prev" id="carousel-prev" aria-label="Previous screenshot">‹</button>
@@ -839,7 +834,7 @@
         'hero.title': 'Bessere Entscheidungen für deine Sleeper-Ligen',
         'hero.lead': 'GridIron IQ vereint Scouting-Notizen, Exposure-Analyse, Trade Intelligence und Injury Insights in einer App — für ambitionierte Fantasy Manager.',
         'gallery.title': 'App-Vorschau',
-        'gallery.lead': 'Mit Pfeilen blättern · Doppelklick auf Screenshot zum Vergrößern',
+        'gallery.lead': 'Mit Pfeilen blättern · Screenshot antippen zum Vergrößern',
         'gallery.close': 'Schließen',
         'gallery.home1': 'Liga-Übersicht mit Lineup-Alerts',
         'gallery.home2': 'Alle Ligen auf einen Blick',
@@ -899,7 +894,7 @@
         'hero.title': 'Smarter decisions for your Sleeper leagues',
         'hero.lead': 'GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.',
         'gallery.title': 'App preview',
-        'gallery.lead': 'Use arrows to browse · double-click a screenshot to zoom',
+        'gallery.lead': 'Use arrows to browse · tap a screenshot to zoom',
         'gallery.close': 'Close',
         'gallery.home1': 'League overview with lineup alerts',
         'gallery.home2': 'All leagues at a glance',
@@ -992,7 +987,7 @@
       }).join('');
 
       track.querySelectorAll('img').forEach(function (img) {
-        img.addEventListener('dblclick', function () {
+        img.addEventListener('click', function () {
           openLightbox(parseInt(img.getAttribute('data-index'), 10));
         });
       });
