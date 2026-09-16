@@ -148,11 +148,11 @@
     .hero {
       position: relative;
       text-align: center;
-      padding: 3.25rem 0 3.5rem;
-      margin-bottom: 2.5rem;
+      padding: 1.5rem 0 1.75rem;
+      margin-bottom: 1.25rem;
       background:
-        linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.84) 45%, rgba(15, 23, 42, 0.96) 100%),
-        url('assets/background.jpg') center 42% / cover no-repeat;
+        linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.9) 55%, rgba(15, 23, 42, 0.97) 100%),
+        url('assets/background.jpg') center 38% / cover no-repeat;
       border-bottom: 1px solid var(--border);
     }
 
@@ -175,16 +175,16 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.35rem 0.75rem;
+      padding: 0.3rem 0.65rem;
       border-radius: 999px;
       border: 1px solid var(--primary-border);
       background: var(--primary-muted);
       color: #93c5fd;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.75rem;
     }
 
     .badge-dot {
@@ -196,11 +196,20 @@
     }
 
     .hero-logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      margin: 0 auto 1.25rem;
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      margin: 0 auto 0.85rem;
       box-shadow: var(--shadow), 0 0 0 1px var(--primary-border);
+    }
+
+    .hero h1 {
+      margin: 0 0 0.55rem;
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      text-shadow: 0 2px 24px rgba(15, 23, 42, 0.85);
     }
 
     h1 {
@@ -209,14 +218,14 @@
       line-height: 1.12;
       letter-spacing: -0.03em;
       font-weight: 800;
-      text-shadow: 0 2px 24px rgba(15, 23, 42, 0.85);
     }
 
     .hero-lead {
       margin: 0 auto;
-      max-width: 38rem;
+      max-width: 32rem;
       color: #cbd5e1;
-      font-size: 1.05rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
       text-shadow: 0 1px 16px rgba(15, 23, 42, 0.9);
     }
 
@@ -410,25 +419,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: min(340px, 46vh);
-      padding: 0.75rem 0.35rem;
+      min-height: min(300px, 40vh);
+      padding: 0.65rem 0.3rem;
     }
 
     .carousel-slide img {
-      max-height: min(320px, 42vh);
-      max-width: min(100%, 220px);
-      width: auto;
+      display: block;
+      width: min(100%, 200px);
+      aspect-ratio: 1080 / 2340;
       height: auto;
+      max-height: min(300px, 40vh);
+      object-fit: cover;
+      object-position: top center;
       border-radius: 10px;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
       cursor: zoom-in;
       user-select: none;
       -webkit-user-drag: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .carousel-slide.is-active img {
-      transform: scale(1.02);
     }
 
     .carousel-btn {
@@ -513,10 +520,13 @@
     }
 
     .lightbox-inner img {
-      max-width: 100%;
+      display: block;
+      width: min(100%, 520px);
       max-height: calc(92vh - 4rem);
-      width: auto;
+      aspect-ratio: 1080 / 2340;
       height: auto;
+      object-fit: cover;
+      object-position: top center;
       border-radius: 12px;
       box-shadow: var(--shadow);
     }
@@ -629,8 +639,8 @@
       }
 
       .hero {
-        padding: 2.25rem 0 2.75rem;
-        background-position: center 48%;
+        padding: 1.15rem 0 1.35rem;
+        background-position: center 45%;
       }
 
       .download-row .btn {
