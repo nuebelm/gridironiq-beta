@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" role="img" aria-labelledby="title">
+  <title id="title">Allow unknown sources</title>
+  <rect width="360" height="640" rx="28" fill="#111827"/>
+  <rect x="16" y="48" width="328" height="544" rx="20" fill="#1f2937"/>
+  <rect x="130" y="24" width="100" height="8" rx="4" fill="#374151"/>
+  <rect x="40" y="72" width="120" height="10" rx="4" fill="#94a3b8"/>
+  <rect x="40" y="96" width="200" height="16" rx="4" fill="#f8fafc"/>
+  <rect x="40" y="140" width="280" height="64" rx="12" fill="#172033" stroke="#334155"/>
+  <rect x="56" y="158" width="180" height="10" rx="4" fill="#e2e8f0"/>
+  <rect x="56" y="178" width="120" height="8" rx="4" fill="#64748b"/>
+  <rect x="272" y="162" width="36" height="20" rx="10" fill="#22c55e"/>
+  <circle cx="284" cy="172" r="8" fill="#f8fafc"/>
+  <rect x="40" y="220" width="280" height="64" rx="12" fill="#172033" stroke="#334155"/>
+  <rect x="56" y="238" width="160" height="10" rx="4" fill="#e2e8f0"/>
+  <rect x="56" y="258" width="110" height="8" rx="4" fill="#64748b"/>
+  <rect x="272" y="242" width="36" height="20" rx="10" fill="#475569"/>
+  <circle cx="296" cy="252" r="8" fill="#f8fafc"/>
+  <text x="180" y="340" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13">Install unknown apps</text>
+</svg>

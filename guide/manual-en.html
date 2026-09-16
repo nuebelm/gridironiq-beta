@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>GridIron IQ — User Manual</title>
+  <link rel="icon" href="../assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-brand" href="../index.html">
+        <img src="../assets/icon.png" alt="" width="36" height="36">
+        <span>GridIron IQ</span>
+      </a>
+      <nav class="doc-nav"><a href="quickstart-de.html">Deutsch</a> · <a href="manual-en.html">Manual</a> · <a href="../index.html#download">APK</a></nav>
+    </div>
+  </header>
+  <main class="doc-main">
+    <article class="doc-article">
+      <p class="doc-beta"><strong>Closed beta:</strong> GridIron IQ is not in the Play Store yet. Download the APK only from this landing page. Pro is enabled manually for beta testers after email to <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a>.</p>
+      <h1 id="gridiron-iq-user-manual">GridIron IQ — User Manual</h1>
+<blockquote><p><strong>Audience:</strong> Beta testers and end users   <strong>Last updated:</strong> September 2026   <strong>Closed beta:</strong> Not in the Play Store yet — download the APK only from <a href="https://nuebelm.github.io/gridironiq-beta/">gridironiq-beta</a>. Pro access is enabled manually after email to support@gridiron-iq.de.   <strong>Getting started:</strong> <a href="quickstart-en.html">Quick Start Guide</a> · <a href="manual-de.html">Deutsch</a></p></blockquote>
+<hr>
+<h2 id="table-of-contents">Table of contents</h2>
+<ol>
+<li><a href="#1-what-is-gridiron-iq">What is GridIron IQ?</a></li>
+<li><a href="#2-navigation--basics">Navigation & basics</a></li>
+<li><a href="#3-account--cloud-sync">Account & cloud sync</a></li>
+<li><a href="#4-link-sleeper">Link Sleeper</a></li>
+<li><a href="#5-league-overview-home">League Overview (home)</a></li>
+<li><a href="#6-player-detail">Player detail</a></li>
+<li><a href="#7-notes--scouting">Notes & Scouting</a></li>
+<li><a href="#8-trade-board">Trade board</a></li>
+<li><a href="#9-portfolio-exposure">Portfolio Exposure</a></li>
+<li><a href="#10-injury-analysis">Injury analysis</a></li>
+<li><a href="#11-market-signals--rankings">Market signals & Rankings</a></li>
+<li><a href="#12-settings--support">Settings & support</a></li>
+<li><a href="#13-free-pro--ultimate">Free, Pro & Ultimate</a></li>
+<li><a href="#14-glossary">Glossary</a></li>
+</ol>
+<hr>
+<h2 id="1-what-is-gridiron-iq">1. What is GridIron IQ?</h2>
+<p>GridIron IQ is a <strong>fantasy football companion app</strong> for <strong>Sleeper</strong> users — especially managers with <strong>multiple leagues</strong> (dynasty, redraft, superflex).</p>
+<p><strong>What the app does well:</strong></p>
+<ul>
+<li>All Sleeper leagues and rosters <strong>in one place</strong></li>
+<li><strong>Personal scouting</strong> (notes, tags, trade flags across seasons)</li>
+<li><strong>Cross-league exposure</strong> — where do you start the same player?</li>
+<li><strong>Injury and lineup alerts</strong> before gameday</li>
+<li><strong>Trade board</strong> as your decision hub for flags</li>
+<li><strong>Market values, rankings, and signals</strong> (Pro) from our own data pipeline</li>
+</ul>
+<p><strong>What the app is not:</strong></p>
+<ul>
+<li>Not a Sleeper replacement — trades, waivers, and lineup setting stay in Sleeper</li>
+<li>No automatic buy/sell labels on your roster — <strong>you</strong> set trade flags</li>
+</ul>
+<hr>
+<h2 id="2-navigation-basics">2. Navigation & basics</h2>
+<h3 id="header-bar-every-screen">Header bar (every screen)</h3>
+<table><thead><tr><th>Element</th><th>Action</th></tr></thead><tbody><tr><td><strong>App logo</strong></td><td>Back to League Overview</td></tr><tr><td><strong>Menu (☰)</strong></td><td>Open main navigation</td></tr><tr><td>Title</td><td>Current section</td></tr><tr><td><strong>Gear</strong></td><td>Settings</td></tr><tr><td><strong>Person</strong></td><td>Account (login, Sleeper, tier badge)</td></tr></tbody></table>
+<h3 id="main-menu">Main menu</h3>
+<table><thead><tr><th>Menu item</th><th>Route</th><th>Summary</th></tr></thead><tbody><tr><td><strong>League Overview</strong></td><td>Home</td><td>All leagues and rosters</td></tr><tr><td><strong>Notes & Scouting</strong></td><td><code>/scouting</code></td><td>Notes, tags, and flags at a glance</td></tr><tr><td><strong>Player search</strong></td><td><code>/player-search</code></td><td>Search NFL players (even if not rostered)</td></tr><tr><td><strong>Injury analysis</strong></td><td><code>/injury-matrix</code></td><td>Injury portfolio (Pro)</td></tr><tr><td><strong>Trade board</strong></td><td><code>/trade-board</code></td><td>Flagged players — portfolio vs. targets</td></tr><tr><td><strong>Market signals</strong></td><td><code>/market-signals</code></td><td>Steals, trends, overvalued (Pro)</td></tr><tr><td><strong>Portfolio Exposure</strong></td><td><code>/exposure</code></td><td>Overlaps across all leagues</td></tr><tr><td><strong>Rankings</strong></td><td><code>/rankings</code></td><td>ADP & market value (Pro)</td></tr></tbody></table>
+<p>Pro-only areas show a <strong>paywall</strong> or teaser banner for Free users.</p>
+<hr>
+<h2 id="3-account-cloud-sync">3. Account & cloud sync</h2>
+<p><strong>Route:</strong> Person icon → <strong>Account</strong> (<code>/account</code>)</p>
+<h3 id="guest-vs-signed-in">Guest vs. signed in</h3>
+<table><thead><tr><th>Mode</th><th>Scouting & flags</th><th>Sync</th></tr></thead><tbody><tr><td><strong>Guest</strong></td><td>Local on device</td><td>No cloud sync</td></tr><tr><td><strong>Signed in (Free/Pro)</strong></td><td>Local + cloud</td><td>Notes, tags, flags, Sleeper link, league selection</td></tr></tbody></table>
+<p>Without an account the app works fully <strong>locally</strong> on the Free tier. An account backs up data and syncs across devices.</p>
+<h3 id="create-an-account">Create an account</h3>
+<ol>
+<li>Enter email and password.</li>
+<li>Tap <strong>Create account</strong>.</li>
+<li>Open confirmation email → app launches (deep link <code>gridironiq://auth/callback</code>).</li>
+<li>If needed: <strong>Resend confirmation email</strong>.</li>
+</ol>
+<p><strong>Known beta issue:</strong> Confirmation link sometimes shows <code>localhost</code> in the browser — the address is often <strong>still confirmed</strong>. Try <strong>Sign in</strong> in the app.</p>
+<h3 id="sign-in-sign-out">Sign in & sign out</h3>
+<ul>
+<li><strong>Sign in:</strong> Email + password → <strong>Sign in</strong>.</li>
+<li><strong>Sign out:</strong> Bottom of cloud account section → <strong>Sign out</strong>. Local guest data stays on device; cloud data returns after signing in again.</li>
+</ul>
+<h3 id="reset-password">Reset password</h3>
+<ol>
+<li><strong>Forgot password?</strong> → request reset email.</li>
+<li>Open link in email (ideally on the <strong>same device</strong>).</li>
+<li>Set new password → <strong>Save password</strong>.</li>
+</ol>
+<h3 id="delete-account">Delete account</h3>
+<p><strong>Delete account</strong> section — irreversible. Export a <strong>backup</strong> in Settings first. Cancel Google Play subscriptions separately in the Play Store.</p>
+<hr>
+<h2 id="4-link-sleeper">4. Link Sleeper</h2>
+<p><strong>Route:</strong> Account → <strong>Sleeper account</strong></p>
+<p>GridIron IQ reads <strong>public</strong> Sleeper data (leagues, rosters, player status). You do <strong>not</strong> enter your Sleeper password in GridIron IQ — only your <strong>Sleeper username</strong>.</p>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Enter Sleeper username (exactly as in Sleeper).</li>
+<li>Tap <strong>Synchronize</strong> (first time) or <strong>Update username</strong> (if already linked).</li>
+<li>Success: <strong>Linked</strong> with username and user ID.</li>
+</ol>
+<h3 id="next">Next</h3>
+<p>Tap <strong>Select leagues in Settings</strong> → Settings → check leagues → <strong>Save</strong>.</p>
+<p><strong>Without Sleeper link:</strong> Home screen shows a hint that leagues cannot be loaded.</p>
+<hr>
+<h2 id="5-league-overview-home">5. League Overview (home)</h2>
+<p><strong>Route:</strong> <code>/</code> — menu <strong>League Overview</strong></p>
+<p>The home screen is your <strong>multi-league dashboard</strong>.</p>
+<h3 id="loading-refresh">Loading & refresh</h3>
+<ul>
+<li>On open: league list first, then rosters <strong>in the background</strong> (progress: “X/Y leagues — loading rosters…”).</li>
+<li><strong>Pull-to-refresh:</strong> Pull the list down — <strong>full data refresh</strong> (player catalog incl. injuries, all rosters, projections, waivers).</li>
+<li>On <strong>other screens</strong>, pull-to-refresh is <strong>not equivalent</strong> (partial refresh only). See <a href="features/pull-to-refresh-and-data-freshness.md">Pull-to-Refresh & Daten-Aktualität</a> (DE).</li>
+</ul>
+<h3 id="lineup-alerts">Lineup alerts</h3>
+<p>When relevant, the <strong>Lineup alerts</strong> card appears at the top:</p>
+<table><thead><tr><th>Section</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Swap now</strong></td><td>OUT, IR, PUP — critical</td></tr><tr><td><strong>Likely out</strong></td><td>Doubtful</td></tr><tr><td><strong>Check before kickoff</strong></td><td>Questionable</td></tr></tbody></table>
+<ul>
+<li><strong>Starters only</strong> (not bench players).</li>
+<li><strong>Before kickoff only</strong> (live/finished games drop off).</li>
+<li>Tap <strong>league chip</strong> → league expands, scrolls to player, brief highlight.</li>
+<li>Below chips: <strong>bench replacement hint</strong> (healthy bench player + projection) when available.</li>
+</ul>
+<p>Same banner on <strong>Portfolio Exposure</strong> and <strong>Injury analysis</strong>.</p>
+<h3 id="search-filters">Search & filters</h3>
+<p><strong>Search field</strong> (“Search league or player…”):</p>
+<table><thead><tr><th>Search matches</th><th>Result</th></tr></thead><tbody><tr><td><strong>League name</strong></td><td>League visible, full roster (filter chips still apply)</td></tr><tr><td><strong>Player name</strong></td><td>Only leagues with that player; per league only matches</td></tr><tr><td>Empty</td><td>All active leagues</td></tr></tbody></table>
+<p><strong>Filter chips</strong> (tags, injured, trade flags): filter at <strong>player level</strong>. Leagues with no visible matches are hidden.</p>
+<p><strong>Auto-expand:</strong> Exactly one visible league with an active filter → expands automatically.</p>
+<h3 id="league-card">League card</h3>
+<p>Each league shows (when expanded):</p>
+<ul>
+<li><strong>Roster</strong> with position, injury badge, tags, and trade flags</li>
+<li><strong>Waivers</strong> / pending claims with <strong>Waivers in Sleeper</strong> link</li>
+<li><strong>Open in Sleeper</strong> (league in Sleeper app / browser)</li>
+</ul>
+<p><strong>Reorder mode:</strong> Reorder leagues (all leagues visible, search/filters disabled).</p>
+<h3 id="open-a-player">Open a player</h3>
+<p>Tap a player → <strong>player detail</strong>.</p>
+<hr>
+<h2 id="6-player-detail">6. Player detail</h2>
+<p><strong>Route:</strong> <code>/player/[id]</code> — from any player list</p>
+<h3 id="header">Header</h3>
+<ul>
+<li>Name, position, <strong>team</strong> (tap → NFL team roster by position)</li>
+<li>Injury badge (OUT, Q, D, …)</li>
+<li>Market value / ADP (when available)</li>
+</ul>
+<h3 id="tabs">Tabs</h3>
+<table><thead><tr><th>Tab</th><th>Content</th></tr></thead><tbody><tr><td><strong>Notes & Scouting</strong></td><td>Note timeline, player tags, trade flags, market intelligence (Pro)</td></tr><tr><td><strong>Insights & News</strong></td><td>News, usage & form, league exposure accordion</td></tr></tbody></table>
+<h3 id="notes-scouting">Notes & Scouting</h3>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><strong>Add note</strong> → save text → appears in timeline (newest first).</li>
+<li>Edit or delete notes.</li>
+</ul>
+<p><strong>Player tags:</strong></p>
+<table><thead><tr><th>Tag</th><th>Meaning</th></tr></thead><tbody><tr><td>Watchlist</td><td>Track / monitor</td></tr><tr><td>Favorite, Sleeper, Handcuff, Cut candidate, Declining</td><td>Pro tags</td></tr></tbody></table>
+<p><strong>Trade flags</strong> (your trade decision):</p>
+<table><thead><tr><th>Flag</th><th>Typical use</th></tr></thead><tbody><tr><td><strong>Buy Low</strong></td><td>Buy when price is low</td></tr><tr><td><strong>Sell High</strong></td><td>Sell when price is high</td></tr><tr><td><strong>Trade Target</strong></td><td>Target in a trade</td></tr><tr><td><strong>On the Block</strong></td><td>Actively offered for trade</td></tr><tr><td><strong>Untouchable</strong></td><td>Do not trade</td></tr><tr><td><strong>Package Deal</strong></td><td>Package only (modifier)</td></tr></tbody></table>
+<p>Flags appear on the <strong>Trade board</strong>, in filters, and on exposure cards.</p>
+<p><strong>Free limits:</strong> “X/15 players” (scouting) and “X/3 players” (trade flags) hints.</p>
+<h3 id="team-roster-depth-chart">Team roster (depth chart)</h3>
+<p>Tap the <strong>team abbreviation</strong> in the header (e.g. PHI) → <strong>Team roster</strong> screen:</p>
+<ul>
+<li>All players at that position on the NFL team (Sleeper depth chart)</li>
+<li>Injuries, handcuff hints</li>
+<li>Your player highlighted</li>
+<li>Badge <strong>LWR2</strong> = wide receiver left, rank 2 (not “low WR 2”)</li>
+</ul>
+<h3 id="insights-news">Insights & News</h3>
+<p>#### Usage & form</p>
+<p>Expandable card on player detail (<strong>Insights & News</strong> tab). Data from nflverse (snap counts, weekly stats), synced via the weekly NFL sync.</p>
+<table><thead><tr><th>Element</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Insight line</strong></td><td>Short summary of the biggest change (snap, targets, red zone, …)</td></tr><tr><td><strong>Snap % by week</strong></td><td>Bar chart with fixed columns <strong>W1–W5</strong> (early season; grows with NFL week). Weeks without data = empty bar</td></tr><tr><td><strong>Season W1–W5</strong></td><td>Which NFL weeks are shown in the chart</td></tr></tbody></table>
+<p><strong>WoW (week-over-week):</strong> Comparison to the <strong>immediately prior NFL week</strong>. Details and more abbreviations → <a href="#14-glossary">Glossary §14</a>.</p>
+<p>Empty state before NFL week 1: “No in-season data yet …”</p>
+<ul>
+<li><strong>League exposure:</strong> Rostered/started leagues, buy-in weighting (Pro)</li>
+</ul>
+<hr>
+<h2 id="7-notes-scouting">7. Notes & Scouting</h2>
+<p><strong>Route:</strong> Menu → <strong>Notes & Scouting</strong></p>
+<p>Central view of all players with <strong>notes, tags, or trade flags</strong>.</p>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>Search:</strong> Player name or note text</li>
+<li><strong>Filters:</strong> Trade Target, Buy Low, Sell High, Watchlist, Sleeper, Custom notes, …</li>
+<li><strong>Sort:</strong> Last edited / Oldest first</li>
+<li><strong>Tap player</strong> → player detail (Scouting tab)</li>
+</ul>
+<p><strong>Empty state:</strong> “No scouting notes, tags, or trade flags yet.” — add flags/notes in player detail.</p>
+<hr>
+<h2 id="8-trade-board">8. Trade board</h2>
+<p><strong>Route:</strong> Menu → <strong>Trade board</strong></p>
+<p><strong>Mental model:</strong> Notes & Scouting = research · Trade board = <strong>action</strong>.</p>
+<h3 id="prerequisite">Prerequisite</h3>
+<p>At least one player with a <strong>trade flag</strong> (set in player detail).</p>
+<h3 id="tabs">Tabs</h3>
+<table><thead><tr><th>Tab</th><th>Shows</th></tr></thead><tbody><tr><td><strong>My portfolio</strong></td><td>Sell High, On the Block, Untouchable, Package Deal (your players)</td></tr><tr><td><strong>Targets</strong></td><td>Buy Low, Trade Target</td></tr></tbody></table>
+<h3 id="cockpit">Cockpit</h3>
+<p>Top: counts per flag type + <strong>nudges</strong> (e.g. stale sell flags, many targets, untouchable+sell conflict).</p>
+<h3 id="actions-per-card">Actions per card</h3>
+<table><thead><tr><th>Action</th><th>Tab</th><th>Function</th></tr></thead><tbody><tr><td><strong>Sleeper</strong></td><td>Portfolio</td><td>Open Sleeper app — pick league manually</td></tr><tr><td><strong>Trade Manager</strong></td><td>Portfolio</td><td>Trade Manager with league pre-selected (Pro)</td></tr><tr><td><strong>Open trade</strong></td><td>Targets</td><td>Matchmaking with partner + target player (Pro)</td></tr></tbody></table>
+<p>For players in <strong>multiple leagues:</strong> league picker dialog.</p>
+<h3 id="sort">Sort</h3>
+<p>Cycles: <strong>Priority</strong> → <strong>League</strong> → <strong>Name</strong> (Priority = urgent flags first, e.g. On the Block)</p>
+<h3 id="more-details">More details</h3>
+<ul>
+<li><strong>Flag age:</strong> e.g. <em>On the block · 3 days</em> / <em>Sell High · 1 week</em></li>
+<li><strong>Package Deal:</strong> 2+ players with package flag → shared group (with divider after the group)</li>
+<li>Inline <strong>flag picker</strong> on each card</li>
+</ul>
+<p><strong>Free:</strong> Trade board works for up to 3 flagged players; Trade Manager → paywall.</p>
+<hr>
+<h2 id="9-portfolio-exposure">9. Portfolio Exposure</h2>
+<p><strong>Route:</strong> Menu → <strong>Portfolio Exposure</strong></p>
+<p>Answers: <em>“Where do I have the same player everywhere — especially as a starter?”</em></p>
+<h3 id="free-vs-pro">Free vs. Pro</h3>
+<table><thead><tr><th>Free</th><th>Pro</th></tr></thead><tbody><tr><td><strong>Player overlaps</strong> (list)</td><td>+ <strong>Portfolio cockpit</strong> at top</td></tr><tr><td>Search, sort</td><td>+ filters All / Flagged / Injured</td></tr><tr><td>Expand → league breakdown</td><td>+ format tabs <strong>1QB / SF</strong>, buy-in weighting</td></tr></tbody></table>
+<h3 id="cockpit-pro">Cockpit (Pro)</h3>
+<ul>
+<li>Summary: leagues, alerts, stake pool (cash leagues)</li>
+<li><strong>Needs attention:</strong> Top players with injury/concentration risk</li>
+<li><strong>Position bars:</strong> QB/RB/WR/TE — tap to filter list</li>
+<li><strong>NFL team starters:</strong> Concentration per NFL team</li>
+<li><strong>QB stacks:</strong> QB + WR/TE from same team</li>
+</ul>
+<h3 id="list-filters">List filters</h3>
+<p>Default: <strong>Overlaps</strong> (starter in ≥2 leagues or ≥25% starter share).</p>
+<p>Expand player card → per league: starter/bench, buy-in (when enabled).</p>
+<p><strong>Metric lines</strong> on each card (not on Trade Board):</p>
+<ul>
+<li><em>Starts in X/Y leagues</em> — starter share across all active leagues</li>
+<li><em>Roster W/Y (%)</em> — how many leagues roster this player</li>
+</ul>
+<p><strong>Lineup alerts</strong> also appear here (see §5).</p>
+<hr>
+<h2 id="10-injury-analysis">10. Injury analysis</h2>
+<p><strong>Route:</strong> Menu → <strong>Injury analysis</strong> (Pro)</p>
+<p>Portfolio-wide injury view with historical context (nflverse + Sleeper status).</p>
+<h3 id="areas">Areas</h3>
+<ul>
+<li><strong>Scope:</strong> My players / My starters</li>
+<li><strong>Categories:</strong> Hamstring, knee, ankle, … — tap opens category list</li>
+<li><strong>Search:</strong> Direct player search (min. 2 characters)</li>
+<li><strong>Roster button</strong> per row → team roster (depth chart)</li>
+</ul>
+<h3 id="player-detail-injury">Player detail (injury)</h3>
+<p>In Scouting or Insights tab: injury history, risk bars, typical missed time (Pro).</p>
+<p><strong>Free:</strong> Basic injury status on lists and header — full matrix → paywall.</p>
+<hr>
+<h2 id="11-market-signals-rankings">11. Market signals & Rankings</h2>
+<h3 id="market-signals-pro">Market signals (Pro)</h3>
+<p><strong>Route:</strong> Menu → <strong>Market signals</strong></p>
+<p>System hints from market value vs. ADP:</p>
+<ul>
+<li><strong>Steal candidate</strong>, <strong>Overvalued</strong>, <strong>Trade discount/premium</strong>, trends</li>
+<li>Filters: format, position, injury, gap, sort</li>
+<li>Options: Owned only, Trade targets only, …</li>
+<li>Tap player → detail</li>
+</ul>
+<p><strong>Free:</strong> Teaser on player cards; full feed → paywall.</p>
+<h3 id="rankings-pro">Rankings (Pro)</h3>
+<p><strong>Route:</strong> Menu → <strong>Rankings</strong></p>
+<p>Tabs: Dynasty, Dynasty 1QB/2QB, Redraft 1QB/2QB.</p>
+<p>Columns: Market value (MV), ADP. Search by name/team. Sort toggle.</p>
+<hr>
+<h2 id="12-settings-support">12. Settings & support</h2>
+<p><strong>Route:</strong> Gear → <strong>Settings</strong></p>
+<table><thead><tr><th>Section</th><th>Function</th></tr></thead><tbody><tr><td><strong>Language</strong></td><td>Deutsch / English</td></tr><tr><td><strong>Leagues on home screen</strong></td><td>Enable/disable per season → <strong>Save</strong></td></tr><tr><td><strong>Backup</strong></td><td>Export/import JSON (notes, tags, flags, league selection)</td></tr><tr><td><strong>Support</strong></td><td><strong>Export & share logs</strong> — send to developers for bugs</td></tr><tr><td><strong>System infos</strong></td><td>Closed-beta announcements and APK updates (read-only history)</td></tr><tr><td><strong>Legal</strong></td><td>Privacy, terms, data sources → <code>/about</code></td></tr></tbody></table>
+<p><strong>Account</strong> (person icon): Cloud login and Sleeper — not inside Settings itself.</p>
+<h3 id="system-infos-closed-beta">System infos (closed beta)</h3>
+<p>There is <strong>no Play Store auto-update</strong>. Important messages (new beta APK, changes, maintenance) appear as an overlay after <strong>cold start</strong>, <strong>account switch</strong>, <strong>language change</strong>, or when opening <strong>Settings</strong>. Tap <strong>Read</strong> so the message does not auto-show again.</p>
+<p>Under <strong>Settings → System infos</strong> you see a <strong>preview of the latest message</strong> and <strong>All system infos</strong> (read-only history). Links in the text are tappable; when a download link is set, use <strong>Open link</strong>.</p>
+<p>Messages match the app language (DE/EN). <strong>Admin accounts</strong> do not receive system infos (settings show an admin note instead).</p>
+<ul>
+<li>Before switching devices: export <strong>backup</strong>.</li>
+<li>After import: wait briefly — data reloads.</li>
+<li>Sync issues: sign out/in; pull-to-refresh on home.</li>
+</ul>
+<hr>
+<h2 id="13-free-pro-ultimate">13. Free, Pro & Ultimate</h2>
+<table><thead><tr><th>Feature</th><th>Free</th><th>Pro</th><th>Ultimate</th></tr></thead><tbody><tr><td>Sleeper + rosters</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td>Active leagues</td><td>2</td><td>∞</td><td>∞</td></tr><tr><td>Scouting players</td><td>15</td><td>∞</td><td>∞</td></tr><tr><td>Trade-flag players</td><td>3</td><td>∞</td><td>∞</td></tr><tr><td>Exposure cockpit</td><td>—</td><td>✓</td><td>✓</td></tr><tr><td>Trade Manager</td><td>—</td><td>✓</td><td>✓</td></tr><tr><td>Rankings, signals, Injury Matrix</td><td>Paywall</td><td>✓</td><td>✓</td></tr><tr><td>Rule advisor</td><td>—</td><td>✓</td><td>✓</td></tr><tr><td><strong>AI advisor</strong></td><td>—</td><td>—</td><td>✓ (credits)</td></tr></tbody></table>
+<p><strong>Ultimate</strong> = Pro + monthly AI credits for LLM-powered analysis.</p>
+<p>Upgrade via in-app subscription (Google Play) — tier badge on person icon after unlock (PRO / crown).</p>
+<hr>
+<h2 id="14-glossary">14. Glossary</h2>
+<p>Abbreviations and terms used in the app — look here when a label is unclear.</p>
+<h3 id="usage-form-player-detail">Usage & form (player detail)</h3>
+<table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>WoW</strong></td><td><strong>W</strong>eek-<strong>o</strong>ver-<strong>W</strong>eek — comparison to the <strong>prior week</strong>. A <strong>WoW jump</strong> = a sharp up or down move vs. prior week</td></tr><tr><td><strong>W1 … W5</strong></td><td>NFL weeks 1 through 5 (snap chart; grows with the season)</td></tr><tr><td><strong>Snap / snap %</strong></td><td>Share of team offensive snaps the player was on the field for</td></tr><tr><td><strong>pts / Pp</strong></td><td><strong>P</strong>ercentage <strong>p</strong>oints — absolute difference (40% → 50% = <strong>+10 pts</strong>, not “+10%”)</td></tr><tr><td><strong>Target share</strong></td><td>Share of team pass attempts (targets) to this player</td></tr><tr><td><strong>Catch rate</strong></td><td>Receptions divided by targets</td></tr><tr><td><strong>Red zone / RZ</strong></td><td>Inside the 20 — high TD relevance</td></tr><tr><td><strong>Red-zone touches</strong></td><td>Touches inside the red zone</td></tr><tr><td><strong>ADOT</strong></td><td><strong>A</strong>verage <strong>d</strong>epth <strong>o</strong>f <strong>t</strong>arget — average pass depth in yards</td></tr><tr><td><strong>Air-yards share</strong></td><td>Share of team air yards to this receiver</td></tr><tr><td><strong>Carries / targets / touches</strong></td><td>Rush attempts / pass targets / combined volume (position-dependent)</td></tr><tr><td><strong>INT</strong></td><td>Interception</td></tr><tr><td><strong>PFR</strong></td><td>Pro-Football-Reference — source for drops, etc.</td></tr></tbody></table>
+<h3 id="market-rankings-signals">Market, rankings & signals</h3>
+<table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>ADP</strong></td><td><strong>A</strong>verage <strong>d</strong>raft <strong>p</strong>osition in our data set</td></tr><tr><td><strong>MV / market value</strong></td><td>Computed value from draft and trade data (GridIron-specific)</td></tr><tr><td><strong>Gap</strong></td><td>Distance between market-value rank and ADP rank</td></tr><tr><td><strong>Δ / delta</strong></td><td>Change since last snapshot (e.g. market-value trend)</td></tr><tr><td><strong>Market signal</strong></td><td>System hint from ADP/market value/trades — <strong>not</strong> buy/sell advice</td></tr></tbody></table>
+<h3 id="leagues-formats">Leagues & formats</h3>
+<table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>SF / superflex</strong></td><td>League with an extra superflex starter slot (QB-eligible)</td></tr><tr><td><strong>1QB</strong></td><td>Standard league with one QB starter</td></tr><tr><td><strong>Redraft</strong></td><td>Single-season league</td></tr><tr><td><strong>Dynasty</strong></td><td>Multi-year league — rosters carry over</td></tr><tr><td><strong>Best ball</strong></td><td>Format without weekly lineup setting</td></tr></tbody></table>
+<h3 id="scouting-trades-app">Scouting, trades & app</h3>
+<table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Sleeper</strong></td><td>Fantasy platform — source for leagues and rosters</td></tr><tr><td><strong>Exposure</strong></td><td>How strongly a player appears across your leagues</td></tr><tr><td><strong>Trade flag</strong></td><td>Your trade signal (Buy Low, Sell High, …)</td></tr><tr><td><strong>Scouting tag</strong></td><td>Category (Watchlist, Handcuff, …) — not a trade signal</td></tr><tr><td><strong>Depth chart</strong></td><td>NFL depth chart (LWR2 = left WR, rank 2)</td></tr><tr><td><strong>Package Deal</strong></td><td>Flag modifier: trade player only as part of a package</td></tr><tr><td><strong>Pull-to-refresh</strong></td><td>Pull list down to refresh</td></tr><tr><td><strong>Cloud sync</strong></td><td>Notes/flags/leagues on server — with account</td></tr><tr><td><strong>PPG</strong></td><td><strong>P</strong>oints <strong>p</strong>er <strong>g</strong>ame</td></tr></tbody></table>
+<hr>
+<p><strong>Quick start:</strong> <a href="quickstart-en.html">Quick Start Guide</a></p>
+    </article>
+    <aside class="doc-aside">
+      <p><strong>More</strong></p>
+      <ul><li><a href="quickstart-en.html">Quick Start</a></li><li><a href="manual-de.html">Benutzerhandbuch (Deutsch)</a></li></ul>
+      <p><a class="doc-back" href="../index.html">← Back to beta landing</a></p>
+    </aside>
+  </main>
+  <footer class="doc-footer">
+    <p>© 2026 GridIron IQ · <a href="https://nuebelm.github.io/gridironiq-privacy/">Privacy / Impressum</a></p>
+  </footer>
+</body>
+</html>

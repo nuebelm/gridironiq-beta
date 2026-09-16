@@ -11,6 +11,9 @@ Public landing page and APK releases for the GridIron IQ closed beta (Android si
 | File | Purpose |
 |------|---------|
 | `index.html` | Beta landing page (DE/EN) |
+| `guide/*.html` | Public Quick Start + User Manual (DE/EN) |
+| `scripts/build-guide.mjs` | Regenerate `guide/` from private `fantasynotebook` docs |
+| `assets/install-*.svg` | Sideload step illustrations |
 | `assets/icon.png` | App logo |
 | `assets/hero1.jpg` | Hero banner background |
 | `assets/teaser.jpg` | Open Graph / social link preview |
@@ -19,3 +22,9 @@ Public landing page and APK releases for the GridIron IQ closed beta (Android si
 ## Maintainer
 
 Upload new beta builds via GitHub Releases. Update the SHA-256 in `index.html` when the APK changes.
+
+Regenerate user docs after editing `my-fantasy-app/docs/quickstart/` or `user-guide/`:
+
+```bash
+node scripts/build-guide.mjs
+```
