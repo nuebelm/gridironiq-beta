@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#0f172a">
   <title>GridIron IQ — Closed Beta</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="preload" href="assets/background.jpg" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -141,12 +142,33 @@
     }
 
     main {
-      padding: 2.5rem 0 4rem;
+      padding: 0 0 4rem;
     }
 
     .hero {
+      position: relative;
       text-align: center;
-      padding: 1rem 0 2.5rem;
+      padding: 3.25rem 0 3.5rem;
+      margin-bottom: 2.5rem;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.84) 45%, rgba(15, 23, 42, 0.96) 100%),
+        url('assets/background.jpg') center 42% / cover no-repeat;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 38%, rgba(56, 189, 248, 0.12), transparent 65%),
+        radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.35), transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .badge {
@@ -187,13 +209,15 @@
       line-height: 1.12;
       letter-spacing: -0.03em;
       font-weight: 800;
+      text-shadow: 0 2px 24px rgba(15, 23, 42, 0.85);
     }
 
     .hero-lead {
       margin: 0 auto;
       max-width: 38rem;
-      color: var(--text-secondary);
+      color: #cbd5e1;
       font-size: 1.05rem;
+      text-shadow: 0 1px 16px rgba(15, 23, 42, 0.9);
     }
 
     .card {
@@ -588,6 +612,11 @@
         display: none;
       }
 
+      .hero {
+        padding: 2.25rem 0 2.75rem;
+        background-position: center 48%;
+      }
+
       .download-row .btn {
         width: 100%;
       }
@@ -612,8 +641,8 @@
   </header>
 
   <main>
-    <div class="wrap">
-      <section class="hero">
+    <section class="hero">
+      <div class="wrap hero-inner">
         <div class="badge">
           <span class="badge-dot" aria-hidden="true"></span>
           <span data-i18n="hero.badge">Closed Beta · Android</span>
@@ -623,8 +652,10 @@
         <p class="hero-lead" data-i18n="hero.lead">
           GridIron IQ brings scouting notes, exposure analysis, trade intelligence, and injury insights together in one app — built for serious fantasy managers.
         </p>
-      </section>
+      </div>
+    </section>
 
+    <div class="wrap">
       <section class="card" id="preview">
         <h2 data-i18n="gallery.title">App preview</h2>
         <p data-i18n="gallery.lead">Use the arrows to browse · double-click a screenshot to zoom</p>
