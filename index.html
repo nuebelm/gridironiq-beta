@@ -965,7 +965,7 @@
           <li data-i18n="trust.item4">The app needs internet access only — no SMS, contacts, or banking permissions.</li>
           <li data-i18n="trust.item5">App source stays private; landing page and APK releases are public on GitHub.</li>
           <li data-i18n="trust.item6">Provider: Markus Nübel · <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> · Impressum on the privacy page linked above.</li>
-          <li data-i18n="trust.item7">Independent scan: <a href="https://www.virustotal.com/gui/file/d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">VirusTotal report</a> — 1 heuristic hit, rest clean (common for sideload beta APKs). Always verify SHA-256 before installing.</li>
+          <li data-i18n="trust.item7">Independent scan: <a href="https://www.virustotal.com/gui/file/409b3fc94f510ecc9aa585ce9c83c376384a7e543557e4c48d2538fbb3aa8a78" target="_blank" rel="noopener noreferrer">VirusTotal report</a> — upload new APK to VirusTotal after each release; always verify SHA-256 before installing.</li>
         </ul>
       </section>
 
@@ -993,7 +993,7 @@
           This build is distributed outside the Play Store for invited testers only. Verify the SHA-256 checksum after download before installing.
         </p>
         <div class="download-row">
-          <a class="btn btn-primary" id="download-link" href="https://github.com/nuebelm/gridironiq-beta/releases/download/v0.1.0-beta.2026-09-15/app-release.apk" data-i18n="download.cta">
+          <a class="btn btn-primary" id="download-link" href="https://github.com/nuebelm/gridironiq-beta/releases/download/v0.1.0-beta.2026-09-17/app-release.apk" data-i18n="download.cta">
             Download APK
           </a>
           <a class="btn btn-secondary" id="release-link" href="https://github.com/nuebelm/gridironiq-beta/releases/latest" data-i18n="download.releases">
@@ -1006,12 +1006,12 @@
         <div class="hash-box">
           <span class="hash-label" data-i18n="download.hashLabel">SHA-256 checksum</span>
           <div class="hash-value">
-            <code id="sha256">D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6</code>
+            <code id="sha256">409B3FC94F510ECC9AA585CE9C83C376384A7E543557E4C48D2538FBB3AA8A78</code>
             <button type="button" class="copy-btn" id="copy-hash" data-i18n="download.copy">Copy</button>
           </div>
         </div>
         <p class="scan-link" data-i18n="download.virustotal">
-          <a href="https://www.virustotal.com/gui/file/d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6" target="_blank" rel="noopener noreferrer">VirusTotal report</a> — 1 heuristic hit, rest clean (normal for sideload). SHA-256 must match before you install.
+          <a href="https://www.virustotal.com/gui/file/409b3fc94f510ecc9aa585ce9c83c376384a7e543557e4c48d2538fbb3aa8a78" target="_blank" rel="noopener noreferrer">VirusTotal report</a> — upload new APK to VirusTotal after each release. SHA-256 must match before you install.
         </p>
       </section>
 
@@ -1076,13 +1076,13 @@
 
       <section class="card section-changelog" id="changelog">
         <h2 data-i18n="changelog.title">What’s in this build</h2>
-        <p class="changelog-meta" data-i18n="changelog.meta">Beta build · 2026-09-15 · v0.1.0-beta.2026-09-15</p>
+        <p class="changelog-meta" data-i18n="changelog.meta">Beta build · 2026-09-17 · v0.1.0-beta.2026-09-17</p>
         <ul class="changelog-list">
-          <li data-i18n="changelog.item1">In-app system announcements + history in Settings</li>
-          <li data-i18n="changelog.item2">Faster login profile load; scouting sync spinner capped at ~8 s</li>
-          <li data-i18n="changelog.item3">Paywall modal scroll fix</li>
-          <li data-i18n="changelog.item4">Trade Board linked package groups</li>
-          <li data-i18n="changelog.item5">Beta build without dev menu</li>
+          <li data-i18n="changelog.item1">Cold start and warm resume without ~20 s home reload (many leagues)</li>
+          <li data-i18n="changelog.item2">League competitive board preview on expanded home cards</li>
+          <li data-i18n="changelog.item3">Smoother loading: Exposure progress banner, Rankings/Market Signals skeletons</li>
+          <li data-i18n="changelog.item4">Auth session restore no longer wipes roster cache</li>
+          <li data-i18n="changelog.item5">Includes prior beta: system infos, Trade Board groups, paywall scroll fix</li>
         </ul>
         <p class="changelog-limits" data-i18n="changelog.limits">
           Known limits: no Play Store · no Google Sign-In yet · new accounts start on Free (Pro unlocked manually after email to support@gridiron-iq.de) · no Sleeper deep links · no store subscription.
@@ -1166,10 +1166,10 @@
   </div>
 
   <script>
-    const SHA256 = 'D0C39C3364DEF953302F724814ABDC3FB9B43E10D9439B0E23147391C24681E6';
-    const APK_DOWNLOAD_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/download/v0.1.0-beta.2026-09-15/app-release.apk';
+    const SHA256 = '409B3FC94F510ECC9AA585CE9C83C376384A7E543557E4C48D2538FBB3AA8A78';
+    const APK_DOWNLOAD_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/download/v0.1.0-beta.2026-09-17/app-release.apk';
     const RELEASE_PAGE_URL = 'https://github.com/nuebelm/gridironiq-beta/releases/latest';
-    const VIRUSTOTAL_FILE_URL = 'https://www.virustotal.com/gui/file/d0c39c3364def953302f724814abdc3fb9b43e10d9439b0e23147391c24681e6';
+    const VIRUSTOTAL_FILE_URL = 'https://www.virustotal.com/gui/file/409b3fc94f510ecc9aa585ce9c83c376384a7e543557e4c48d2538fbb3aa8a78';
     // Paste Google Form short link after creation — see docs/ops/28-closed-beta-program.md §4.1
     const FEEDBACK_FORM_URL = 'https://forms.gle/SdjZ9QX6i1RYQMut5';
 
@@ -1218,12 +1218,12 @@
         'trust.item6': 'Anbieter: Markus Nübel · <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> · Impressum auf der verlinkten Datenschutzseite.',
         'trust.item7': 'Unabhängiger Scan: <a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal-Report</a> — 1 Heuristik-Treffer, Rest clean (bei sideload-APKs üblich). SHA-256 vor Installation vergleichen.',
         'changelog.title': 'Dieser Build',
-        'changelog.meta': 'Beta-Build · 2026-09-15 · v0.1.0-beta.2026-09-15',
-        'changelog.item1': 'System-Infos in der App + Verlauf in Einstellungen',
-        'changelog.item2': 'Schnelleres Profil-Laden beim Login; Scouting-Sync-Spinner max. ~8 s',
-        'changelog.item3': 'Paywall-Modal Scroll-Fix',
-        'changelog.item4': 'Trade Board: verknüpfte Paket-Gruppen',
-        'changelog.item5': 'Beta-Build ohne Dev-Menü',
+        'changelog.meta': 'Beta-Build · 2026-09-17 · v0.1.0-beta.2026-09-17',
+        'changelog.item1': 'Kaltstart und Warm-Resume ohne ~20 s Home-Reload (viele Ligen)',
+        'changelog.item2': 'Liga-Konkurrenz-Vorschau auf aufgeklappten Home-Karten',
+        'changelog.item3': 'Schnelleres Laden: Exposure-Fortschrittsbanner, Rankings/Market-Signals-Skeletons',
+        'changelog.item4': 'Session-Restore löscht Kader-Cache nicht mehr',
+        'changelog.item5': 'Enthält weiterhin: System-Infos, Trade-Board-Gruppen, Paywall-Scroll-Fix',
         'changelog.limits': 'Bekannte Grenzen: kein Play Store · kein Google Sign-In (noch) · neue Konten = Free (Pro nach E-Mail an support@gridiron-iq.de) · kein Sleeper-Deep-Link · kein Store-Abo.',
         'gallery.title': 'App-Vorschau',
         'gallery.lead': 'Mit Pfeilen blättern · Screenshot antippen zum Vergrößern',
@@ -1321,12 +1321,12 @@
         'trust.item6': 'Provider: Markus Nübel · <a href="mailto:support@gridiron-iq.de">support@gridiron-iq.de</a> · Impressum on the privacy page linked above.',
         'trust.item7': 'Independent scan: <a href="' + VIRUSTOTAL_FILE_URL + '" target="_blank" rel="noopener noreferrer">VirusTotal report</a> — 1 heuristic hit, rest clean (common for sideload beta APKs). Always verify SHA-256 before installing.',
         'changelog.title': 'What’s in this build',
-        'changelog.meta': 'Beta build · 2026-09-15 · v0.1.0-beta.2026-09-15',
-        'changelog.item1': 'In-app system announcements + history in Settings',
-        'changelog.item2': 'Faster login profile load; scouting sync spinner capped at ~8 s',
-        'changelog.item3': 'Paywall modal scroll fix',
-        'changelog.item4': 'Trade Board linked package groups',
-        'changelog.item5': 'Beta build without dev menu',
+        'changelog.meta': 'Beta build · 2026-09-17 · v0.1.0-beta.2026-09-17',
+        'changelog.item1': 'Cold start and warm resume without ~20 s home reload (many leagues)',
+        'changelog.item2': 'League competitive board preview on expanded home cards',
+        'changelog.item3': 'Smoother loading: Exposure progress banner, Rankings/Market Signals skeletons',
+        'changelog.item4': 'Auth session restore no longer wipes roster cache',
+        'changelog.item5': 'Includes prior beta: system infos, Trade Board groups, paywall scroll fix',
         'changelog.limits': 'Known limits: no Play Store · no Google Sign-In yet · new accounts start on Free (Pro unlocked manually after email to support@gridiron-iq.de) · no Sleeper deep links · no store subscription.',
         'gallery.title': 'App preview',
         'gallery.lead': 'Use arrows to browse · tap a screenshot to zoom',
